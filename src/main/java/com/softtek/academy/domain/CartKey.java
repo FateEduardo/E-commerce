@@ -1,5 +1,8 @@
 package com.softtek.academy.domain;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class CartKey {
 	private Long id;
 	private User user;

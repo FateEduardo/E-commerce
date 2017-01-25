@@ -1,7 +1,15 @@
 package com.softtek.academy.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class CartDetails {
+	
+	@Column(name = "shipping_amount")
 	private Double shippingAmount;
+	
+	@Column(name = "cart_amount")
 	private Double cartAmount;
 	private Boolean staus;
 	private ShipTo shipTo;

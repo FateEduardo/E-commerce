@@ -1,9 +1,20 @@
 package com.softtek.academy.domain;
 
-public class Cart {
+import java.io.Serializable;
+
+import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
+
+public class Cart implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	
+	@EmbeddedId
 	private CartKey id;
+	
+	@Embedded
 	private CartDetails details;
+	
 	public CartKey getId() {
 		return id;
 	}

@@ -1,6 +1,6 @@
 package com.softtek.academy.domain;
 
-public class ItemOrder {
+public class ItemOrder extends Audit {
 
 	private Item item;
 	private Cart cart;

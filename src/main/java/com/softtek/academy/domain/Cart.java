@@ -4,8 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 
-public class Cart implements Serializable {
+
+@Entity
+public class Cart extends Audit implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	

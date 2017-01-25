@@ -1,6 +1,7 @@
 package com.softtek.academy.domain;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Embeddable;
 
 @Embeddable
@@ -11,9 +12,19 @@ public class CartDetails {
 	
 	@Column(name = "cart_amount")
 	private Double cartAmount;
+	
+	@Column(name = "cart_amount")
+	@Convert(converter=StausToBoolean.class)
 	private Boolean staus;
+	
+	@Column(name = "shipTo")
 	private ShipTo shipTo;
+	
+	@Column(name = "payment")
 	private Payment payment;
+	
+	
+	
 	public Double getShippingAmount() {
 		return shippingAmount;
 	}

@@ -1,5 +1,8 @@
 package com.softtek.academy.domain;
 
+import javax.persistence.Entity;
+
+@Entity
 public class User {
 	
 

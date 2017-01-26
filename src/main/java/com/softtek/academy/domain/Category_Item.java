@@ -1,9 +1,22 @@
 package com.softtek.academy.domain;
 
-public class Category_Item {
-	
+import java.io.Serializable;
 
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="category_item")
+public class Category_Item implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@EmbeddedId
 	private CategoryKey id;
+
 
 	public CategoryKey getId() {
 		return id;

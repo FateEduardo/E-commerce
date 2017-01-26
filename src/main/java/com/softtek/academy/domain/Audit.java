@@ -1,7 +1,8 @@
 package com.softtek.academy.domain;
 
-import java.util.Date;
+import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -12,8 +13,12 @@ import javax.persistence.PreUpdate;
 
 
 @MappedSuperclass
-public class Audit {
+public class Audit implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Column(name = "createDate")
 	private Date createDate;
 	@Column(name = "updateDate")

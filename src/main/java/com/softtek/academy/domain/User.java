@@ -1,31 +1,31 @@
 package com.softtek.academy.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class User {
 	
 
-	private Integer id;
-
+	@Id
+	@Column(name = "username",nullable=false)
 	private String username;
 	
+	@Column(name = "name")
 	private String name;
-
+	
+	@ManyToOne
+	@JoinColumn(name = "user_role_id")
 	private  UserRole role;
 	
+	@Column(name = "active")
 	private String status;
 	
+	@Column(name = "password")
 	private String password;
-	
-	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getUsername() {
 		return username;
@@ -73,6 +73,7 @@ public class User {
 		int result = 1;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
@@ -97,6 +98,11 @@ public class User {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
+		if (role == null) {
+			if (other.role != null)
+				return false;
+		} else if (!role.equals(other.role))
+			return false;
 		if (status == null) {
 			if (other.status != null)
 				return false;
@@ -112,8 +118,10 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", name=" + name + ", status=" + status + ", password=" + password + "]";
+		return "User [username=" + username + ", name=" + name + ", role=" + role + ", status=" + status + ", password="
+				+ password + "]";
 	}
+	
 	
 	
 

@@ -1,57 +1,106 @@
 package com.softtek.academy.domain;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
-public class ShipTo {
-
-	private User user;
-	private String name;
-	private String address;
-	private Integer zip_code;
-	private String phone;
+@Table(name="ship_to")
+public class ShipTo implements Serializable{
 	
-	public User getUser() {
-		return user;
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "ship_to_id")
+	private Long id;
+	
+	@Column(name = "name")
+	private String name;
+	
+	@Column(name = "address")
+	private String address;
+	
+	@Transient
+	private String concat;
+	
+	@Column(name = "zip_code")
+	private Integer zipCode;
+	
+	@Column(name="phone")
+	private String phone;
+
+	public Long getId() {
+		return id;
 	}
-	public void setUser(User user) {
-		this.user = user;
+
+	public void setId(Long id) {
+		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Integer getZip_code() {
-		return zip_code;
+
+	public String getConcat() {
+		return concat;
 	}
-	public void setZip_code(Integer zip_code) {
-		this.zip_code = zip_code;
+
+	public void setConcat(String concat) {
+		this.concat = concat;
 	}
+
+	public Integer getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(Integer zipCode) {
+		this.zipCode = zipCode;
+	}
+
 	public String getPhone() {
 		return phone;
 	}
+
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + ((concat == null) ? 0 : concat.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
-		result = prime * result + ((zip_code == null) ? 0 : zip_code.hashCode());
+		result = prime * result + ((zipCode == null) ? 0 : zipCode.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -66,6 +115,16 @@ public class ShipTo {
 				return false;
 		} else if (!address.equals(other.address))
 			return false;
+		if (concat == null) {
+			if (other.concat != null)
+				return false;
+		} else if (!concat.equals(other.concat))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -76,23 +135,20 @@ public class ShipTo {
 				return false;
 		} else if (!phone.equals(other.phone))
 			return false;
-		if (user == null) {
-			if (other.user != null)
+		if (zipCode == null) {
+			if (other.zipCode != null)
 				return false;
-		} else if (!user.equals(other.user))
-			return false;
-		if (zip_code == null) {
-			if (other.zip_code != null)
-				return false;
-		} else if (!zip_code.equals(other.zip_code))
+		} else if (!zipCode.equals(other.zipCode))
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
-		return "ShipTo [user=" + user + ", name=" + name + ", address=" + address + ", zip_code=" + zip_code
-				+ ", phone=" + phone + "]";
+		return "ShipTo [id=" + id + ", name=" + name + ", address=" + address + ", concat=" + concat + ", zipCode="
+				+ zipCode + ", phone=" + phone + "]";
 	}
+	
 	
 	 
 	

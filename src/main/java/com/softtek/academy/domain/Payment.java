@@ -1,12 +1,30 @@
 package com.softtek.academy.domain;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Payment {
+@Table(name="payment")
+public class Payment implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="payment_id")
 	private Long id;
+	@Column(name="description")
 	private String description;
+	
+	
 	public Long getId() {
 		return id;
 	}

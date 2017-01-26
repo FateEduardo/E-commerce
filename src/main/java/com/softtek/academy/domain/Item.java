@@ -1,15 +1,45 @@
 package com.softtek.academy.domain;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 
 @Entity
-public class Item {
+@Table(name="item")
+public class Item implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.TABLE,generator="ORDEN_SEQ")
+	@TableGenerator(name="ORDEN_SEQ",table="tsequence",
+	pkColumnName="seq_name",valueColumnName="seq_acount",
+	pkColumnValue="ITEM",allocationSize=1)
+	@Column(name="item_id")
 	private Long id;
+	
+	@Column(name="features")
 	private String features;
+	
+	@Column(name="description")
 	private String description;
+	
+	@Column(name="price")
 	private Double price;
+	
+	@Column(name="stock")
 	private Integer stock;
+	
+	@Column(name="active")
 	private String active;
 	
 	

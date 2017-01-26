@@ -1,10 +1,49 @@
 package com.softtek.academy.domain;
 
-public class ItemOrder extends Audit {
+import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="item_order")
+public class ItemOrder extends Audit implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="item_order_id")
+	private Long id;
+	
+	@ManyToOne
+	@JoinColumn(name="item_id")
 	private Item item;
+	
+	@ManyToOne
+	@JoinColumn(name="cart_id")
 	private Cart cart;
+	
+	@Column(name="quantity")
 	private Long quantity;
+	
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public Item getItem() {
 		return item;
 	}
@@ -23,20 +62,23 @@ public class ItemOrder extends Audit {
 	public void setQuantity(Long quantity) {
 		this.quantity = quantity;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		int result = super.hashCode();
 		result = prime * result + ((cart == null) ? 0 : cart.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((item == null) ? 0 : item.hashCode());
 		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
@@ -45,6 +87,11 @@ public class ItemOrder extends Audit {
 			if (other.cart != null)
 				return false;
 		} else if (!cart.equals(other.cart))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (item == null) {
 			if (other.item != null)
@@ -58,10 +105,12 @@ public class ItemOrder extends Audit {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
-		return "ItemOrder [item=" + item + ", cart=" + cart + ", quantity=" + quantity + "]";
+		return "ItemOrder [id=" + id + ", item=" + item + ", cart=" + cart + ", quantity=" + quantity + "]";
 	}
+
 	
 	
 }

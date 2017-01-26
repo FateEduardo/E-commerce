@@ -1,9 +1,24 @@
 package com.softtek.academy.domain;
 
-public class CategoryKey {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class CategoryKey implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Column(name="category_item_id")
 	private Category id;
+	
+	@Column(name="item")
 	private Item item;
+	
 	public Category getId() {
 		return id;
 	}

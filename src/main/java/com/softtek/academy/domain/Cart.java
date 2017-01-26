@@ -33,7 +33,7 @@ public class Cart extends Audit implements Serializable {
 	@Column(name = "cart_amount")
 	private Double cartAmount;
 	
-	@Column(name = "status")
+	@Column(name = "active")
 	@Convert(converter=StausToBoolean.class)
 	private Boolean staus;
 	

@@ -47,7 +47,14 @@ CREATE TABLE PAYMENT_METHOD (
   PRIMARY KEY(payment_method_id)
 ) ENGINE=InnoDB;
 
+CREATE TABLE CATEGORY(
+	category_id INTEGER NOT NULL,
+	description VARCHAR(20),
+    
+PRIMARY KEY(category_id)
 
+
+)ENGINE=InnoDB;
 
 //Item primero y carrito
 
@@ -69,9 +76,27 @@ CREATE TABLE ITEM_ORDER(
 	    REFERENCES user(cart_id)
 	    ON DELETE RESTRICT
 	    ON UPDATE CASCADE
-)
+)ENGINE=InnoDB;
 
 
-
+CREATE TABLE ITEM_ORDER(
+	item_order_id INTEGER NOT NULL,
+	item_id INTEGER,
+	cart_id INTEGER,
+	quantity INTEGER,
+	PRIMARY KEY(item_order_id),
+	INDEX idx_item_order_item_id(item_id),
+	INDEX idx_item_order_cart_id(cart_id),
+	CONSTRAINT fk_item_item_order
+	    FOREIGN KEY(item_id)
+	    REFERENCES (item_id)
+	    ON DELETE RESTRICT
+	    ON UPDATE CASCADE,
+    CONSTRAINT fk_cart_item_order
+	    FOREIGN KEY(cart_id)
+	    REFERENCES user(cart_id)
+	    ON DELETE RESTRICT
+	    ON UPDATE CASCADE
+)ENGINE=InnoDB;
 
 

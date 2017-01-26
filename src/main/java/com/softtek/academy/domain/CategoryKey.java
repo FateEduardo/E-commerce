@@ -13,10 +13,10 @@ public class CategoryKey implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="category_item_id")
+	@Column(name="category_id")
 	private Category id;
 	
-	@Column(name="item")
+	@Column(name="item_id")
 	private Item item;
 	
 	public Category getId() {

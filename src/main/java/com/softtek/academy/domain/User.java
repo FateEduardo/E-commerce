@@ -1,17 +1,26 @@
 package com.softtek.academy.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
-public class User {
+@Table(name="user")
+public class User implements Serializable{
 	
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@Column(name = "username",nullable=false)
+	@Column(name = "username")
 	private String username;
 	
 	@Column(name = "name")

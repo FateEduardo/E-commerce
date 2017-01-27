@@ -21,10 +21,10 @@ public class Item implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE,generator="ORDEN_SEQ")
-	@TableGenerator(name="ORDEN_SEQ",table="tsequence",
-	pkColumnName="seq_name",valueColumnName="seq_acount",
-	pkColumnValue="ITEM",allocationSize=1)
+//	@GeneratedValue(strategy=GenerationType.TABLE,generator="ORDEN_SEQ")
+//	@TableGenerator(name="ORDEN_SEQ",table="tsequence",
+//	pkColumnName="seq_name",valueColumnName="seq_acount",
+//	pkColumnValue="ITEM",allocationSize=1)
 	@Column(name="item_id")
 	private Long id;
 	
@@ -41,7 +41,7 @@ public class Item implements Serializable{
 	private Integer stock;
 	
 	@Column(name="active")
-	@Convert(converter=StausToBoolean.class)
+//	@Convert(converter=StausToBoolean.class)
 	private Boolean active;
 	
 	

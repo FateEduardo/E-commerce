@@ -23,17 +23,14 @@ public class ShipTo implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "ship_to_id")
 	private Long id;
 	
 	@JoinColumn(name="user")
 	@ManyToOne
 	private User user;
-	
-	@Column(name = "name")
-	private String name;
-	
+
 	
 	@Column(name = "address")
 	private String address;
@@ -55,13 +52,7 @@ public class ShipTo implements Serializable{
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public String getAddress() {
 		return address;
@@ -102,8 +93,8 @@ public class ShipTo implements Serializable{
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
 		result = prime * result + ((concat == null) ? 0 : concat.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		result = prime * result + ((zipCode == null) ? 0 : zipCode.hashCode());
 		return result;
 	}
@@ -132,15 +123,15 @@ public class ShipTo implements Serializable{
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
 		if (phone == null) {
 			if (other.phone != null)
 				return false;
 		} else if (!phone.equals(other.phone))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
 			return false;
 		if (zipCode == null) {
 			if (other.zipCode != null)
@@ -152,9 +143,12 @@ public class ShipTo implements Serializable{
 
 	@Override
 	public String toString() {
-		return "ShipTo [id=" + id + ", name=" + name + ", address=" + address + ", concat=" + concat + ", zipCode="
+		return "ShipTo [id=" + id + ", user=" + user + ", address=" + address + ", concat=" + concat + ", zipCode="
 				+ zipCode + ", phone=" + phone + "]";
 	}
+
+
+
 	
 	
 	 

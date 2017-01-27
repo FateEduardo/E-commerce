@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="item_order")
-public class ItemOrder extends Audit implements Serializable {
+public class ItemOrder implements Serializable {
 
 	/**
 	 * 
@@ -21,7 +21,7 @@ public class ItemOrder extends Audit implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="item_order_id")
 	private Long id;
 	

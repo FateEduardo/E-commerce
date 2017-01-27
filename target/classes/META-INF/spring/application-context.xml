@@ -1,51 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
-	
+
 	<!-- Controllers -->
-	<context:component-scan base-package="com.softtek.academy.web"/>
+	<context:component-scan base-package="com.softtek.academy.web" />
 	<!-- Services -->
-	<context:component-scan base-package="com.softtek.academy.services"/>
-	
-	<jpa:repositories base-package="com.softtek.academy.repository" entity-manager-factory-ref="entityManagerFactory" />
-	
-	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" >
-	   <property name="dataSource" ref="dataSource" />
-	   <property name="packagesToScan" value="com.softtek.academy.domain" />
-	   <property name="jpaVendorAdapter" ref="jpaVendor" ></property>	
+	<context:component-scan base-package="com.softtek.academy.services" />
+
+	<bean name="placeHolder"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="true"></property>
+		<property name="ignoreUnresolvablePlaceholders" value="true"></property>
+		<property name="locations">
+			<list>
+				<value>project-${enviroment}.properties</value>
+			</list>
+
+		</property>
 	</bean>
-	
-	<bean id="jpaVendor" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-	   <property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
-	   <property name="showSql" value="true" />
-	   <property name="generateDdl" value="false" />
+
+	<jpa:repositories base-package="com.softtek.academy.repository"
+		entity-manager-factory-ref="entityManagerFactory" />
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="com.softtek.academy.domain" />
+		<property name="jpaVendorAdapter" ref="jpaVendor"></property>
 	</bean>
-	
-<!-- 	<jdbc:embedded-database type="HSQL" id="dataSource" > -->
-<!-- 	   <jdbc:script location="classpath:/scripts/model.sql" /> -->
-<!-- 	   <jdbc:script location="classpath:/scripts/model.sql" /> -->
-<!-- 	</jdbc:embedded-database> -->
-	
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" >
-	   <property name="entityManagerFactory" ref="entityManagerFactory" />
+
+	<bean id="jpaVendor"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+		<property name="showSql" value="true" />
+		<property name="generateDdl" value="false" />
 	</bean>
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/FinalecomDB" />
-		<property name="username" value="Eescalona" />
-		<property name="password" value="Eescalona" />
+
+
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
-	
 	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<beans profile="test">
+		<jdbc:embedded-database type="HSQL" id="dataSource">
+			<jdbc:script location="classpath:/scripts/model.sql" />
+			<jdbc:script location="classpath:/scripts/model.sql" />
+		</jdbc:embedded-database>
+	</beans>
+
+	<beans profile="dev">
+		<bean id="dataSource"
+			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="${jdbc.database.driverClassName}" />
+			<property name="url" value="${jdbc.database.url}" />
+			<property name="username" value="${jdbc.database.username}" />
+			<property name="password" value="${jdbc.database.password}" />
+		</bean>
+	</beans>
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+	<!-- <property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
+	<!-- <property name="url" value="jdbc:mysql://localhost:3306/ecommerceDB" 
+		/> -->
+	<!-- <property name="username" value="Eescalona" /> -->
+	<!-- <property name="password" value="Eescalona" /> -->
+	<!-- </bean> -->
+
 
 </beans>

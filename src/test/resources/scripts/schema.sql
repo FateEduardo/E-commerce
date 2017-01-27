@@ -26,7 +26,6 @@ CREATE TABLE USER(
 CREATE TABLE SHIP_TO (
   ship_to_id INTEGER NOT NULL,
   user VARCHAR(20) NOT NULL,
-  name VARCHAR(100),
   address VARCHAR(250),
   zip_code INTEGER,
   phone VARCHAR(20),
@@ -49,12 +48,22 @@ CREATE TABLE PAYMENT_METHOD (
 
 CREATE TABLE CATEGORY(
 	category_id INTEGER NOT NULL,
-	description VARCHAR(20),
+	description VARCHAR(100),
     
 PRIMARY KEY(category_id)
 
 
 )ENGINE=InnoDB;
+
+CREATE TABLE ITEM (
+  item_id INTEGER NOT NULL ,
+  description VARCHAR(100),
+  features VARCHAR(250),
+  unit_price DECIMAL(10,2),
+  stock INTEGER,
+  active VARCHAR(1),
+  PRIMARY KEY(item_id)
+) ENGINE=InnoDB;
 
 CREATE TABLE CATEGORY_ITEM(
 	category_id INTEGER NOT NULL,
@@ -94,16 +103,6 @@ CREATE TABLE CART (
     ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
-
-CREATE TABLE ITEM (
-  item_id INTEGER NOT NULL ,
-  description VARCHAR(100),
-  features VARCHAR(250),
-  unit_price DECIMAL(10,2),
-  stock INTEGER,
-  active VARCHAR(1),
-  PRIMARY KEY(item_id)
-) ENGINE=InnoDB;
 CREATE TABLE ITEM_ORDER(
 	item_order_id INTEGER NOT NULL,
 	item_id INTEGER,
@@ -125,6 +124,14 @@ CREATE TABLE ITEM_ORDER(
 	    ON DELETE RESTRICT
 	    ON UPDATE CASCADE
 )ENGINE=InnoDB;
+
+
+CREATE TABLE TSEQUENCE(
+	seq_name VARCHAR(10) ,
+	seq_acount INTEGER
+)ENGINE=InnoDB;
+
+
 
 
 

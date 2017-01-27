@@ -26,7 +26,6 @@ CREATE TABLE USER(
 CREATE TABLE SHIP_TO (
   ship_to_id INTEGER NOT NULL,
   user VARCHAR(20) NOT NULL,
-  name VARCHAR(100),
   address VARCHAR(250),
   zip_code INTEGER,
   phone VARCHAR(20),
@@ -49,54 +48,90 @@ CREATE TABLE PAYMENT_METHOD (
 
 CREATE TABLE CATEGORY(
 	category_id INTEGER NOT NULL,
-	description VARCHAR(20),
+	description VARCHAR(100),
     
 PRIMARY KEY(category_id)
 
 
 )ENGINE=InnoDB;
 
-//Item primero y carrito
+CREATE TABLE ITEM (
+  item_id INTEGER NOT NULL ,
+  description VARCHAR(100),
+  features VARCHAR(250),
+  unit_price DECIMAL(10,2),
+  stock INTEGER,
+  active VARCHAR(1),
+  PRIMARY KEY(item_id)
+) ENGINE=InnoDB;
+
+CREATE TABLE CATEGORY_ITEM(
+	category_id INTEGER NOT NULL,
+	item_id INTEGER NOT NULL,
+    
+PRIMARY KEY(category_id,item_id),
+INDEX idx_item_category_id(category_id),
+  INDEX idx_category_item_id(item_id),
+  CONSTRAINT fk_category_category_item
+    FOREIGN KEY(category_id)
+    REFERENCES category(category_id)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE,
+  CONSTRAINT fk_item_category_item
+    FOREIGN KEY(item_id)
+    REFERENCES item(item_id)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE
+
+)ENGINE=InnoDB;
+
+CREATE TABLE CART (
+  cart_id INTEGER NOT NULL ,
+  shipping_amount DECIMAL(10,2),
+  cart_amount DECIMAL(10,2),
+  ship_to_id INTEGER,
+  active VARCHAR(2),
+  create_date DATETIME,
+  update_date DATETIME,
+
+  PRIMARY KEY(cart_id),
+  INDEX idx_cart_ship_to_id(ship_to_id),
+  CONSTRAINT fk_ship_to_cart
+    FOREIGN KEY(ship_to_id)
+    REFERENCES ship_to(ship_to_id)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE
+) ENGINE=InnoDB;
 
 CREATE TABLE ITEM_ORDER(
 	item_order_id INTEGER NOT NULL,
 	item_id INTEGER,
 	cart_id INTEGER,
 	quantity INTEGER,
+    create_date DATETIME,
+    update_date DATETIME,
 	PRIMARY KEY(item_order_id),
 	INDEX idx_item_order_item_id(item_id),
 	INDEX idx_item_order_cart_id(cart_id),
 	CONSTRAINT fk_item_item_order
 	    FOREIGN KEY(item_id)
-	    REFERENCES (item_id)
+	    REFERENCES item(item_id)
 	    ON DELETE RESTRICT
 	    ON UPDATE CASCADE,
     CONSTRAINT fk_cart_item_order
 	    FOREIGN KEY(cart_id)
-	    REFERENCES user(cart_id)
+	    REFERENCES cart(cart_id)
 	    ON DELETE RESTRICT
 	    ON UPDATE CASCADE
 )ENGINE=InnoDB;
 
 
-CREATE TABLE ITEM_ORDER(
-	item_order_id INTEGER NOT NULL,
-	item_id INTEGER,
-	cart_id INTEGER,
-	quantity INTEGER,
-	PRIMARY KEY(item_order_id),
-	INDEX idx_item_order_item_id(item_id),
-	INDEX idx_item_order_cart_id(cart_id),
-	CONSTRAINT fk_item_item_order
-	    FOREIGN KEY(item_id)
-	    REFERENCES (item_id)
-	    ON DELETE RESTRICT
-	    ON UPDATE CASCADE,
-    CONSTRAINT fk_cart_item_order
-	    FOREIGN KEY(cart_id)
-	    REFERENCES user(cart_id)
-	    ON DELETE RESTRICT
-	    ON UPDATE CASCADE
+CREATE TABLE TSEQUENCE(
+	seq_name VARCHAR(10) ,
+	seq_acount INTEGER
 )ENGINE=InnoDB;
+
+
+
 
 

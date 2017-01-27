@@ -18,6 +18,10 @@
 	
 	<jpa:repositories base-package="com.softtek.academy.repository" entity-manager-factory-ref="entityManagerFactory" />
 	
+<!-- 	<jpa:auditing auditor-aware-ref="auditorAware" /> -->
+<!-- 	<bean id="auditorAware" class="org.springbyexample.orm.entity.AuditorAwareImpl" /> -->
+
+
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" >
 	   <property name="dataSource" ref="dataSource" />
 	   <property name="packagesToScan" value="com.softtek.academy" />

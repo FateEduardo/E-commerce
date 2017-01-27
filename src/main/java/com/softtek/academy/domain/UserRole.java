@@ -67,6 +67,7 @@ public class UserRole implements Serializable {
 	public String toString() {
 		return "UserRole [id=" + id + ", description=" + description + "]";
 	}
+
 	
 	
 

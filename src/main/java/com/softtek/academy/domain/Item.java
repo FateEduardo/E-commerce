@@ -3,13 +3,9 @@ package com.softtek.academy.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Convert;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.TableGenerator;
 
 @Entity
 @Table(name="item")

@@ -2,6 +2,7 @@ package com.softtek.academy.test.services;
 
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,11 @@ public class UserServiceImplTest  {
 	public void testUserServiceListUserNotNull() {
 		List<User>users=userService.findAll();
 		Assert.assertNotNull(users);
+	}
+	
+	@Ignore
+	public void test(){
+		
 	}
 
 }

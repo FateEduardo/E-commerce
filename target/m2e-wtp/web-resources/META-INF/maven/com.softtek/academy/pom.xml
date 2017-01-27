@@ -18,8 +18,12 @@
 	</properties>
 	<dependencies>
 	
-	<!-- Date -->
-	
+	<!-- 	Audit -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-aspects</artifactId>
+		<version>3.2.3.RELEASE</version>
+	</dependency>
 	<!-- JPA HIBERNATE -->
 	<dependency>
 		<groupId>org.springframework.data</groupId>

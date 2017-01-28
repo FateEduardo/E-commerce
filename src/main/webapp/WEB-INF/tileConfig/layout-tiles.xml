@@ -5,7 +5,26 @@
 <tiles-definitions>  
     
   <definition name="DefaultTemplate" template="/WEB-INF/views/home.jsp">
-  
+  <put-attribute name="title" value="Home" />
+		<put-attribute name="carousel" value="/WEB-INF/views/carousel.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+		
+		<put-list-attribute name="javascript">
+		  <add-attribute value="/resources/js/jquery-3.1.1.min.js" />
+		  <add-attribute value="/resources/js/bootstrap/js/bootstrap.min.js"/>
+		  <add-attribute value="/resources/js/angular.min.js"/>
+		  <add-attribute value="/resources/js/main.js"/>
+		  <add-attribute value="/resources/js/angular-cookies.js"/>
+    	</put-list-attribute>
+    	 
+  		<put-list-attribute name="stylesheets">
+	        <add-attribute value="/resources/js/bootstrap/css/bootstrap.min.css" />
+	        <add-attribute value="/resources/css/body.css"/>
+	        <add-attribute value="/resources/css/footer.css"/>
+	        <add-attribute value="/resources/css/general.css"/>
+    	</put-list-attribute>
   
   </definition>
 </tiles-definitions>

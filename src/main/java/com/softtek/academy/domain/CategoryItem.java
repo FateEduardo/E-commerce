@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="category_item")
-public class Category_Item implements Serializable{
+public class CategoryItem implements Serializable{
 	
 	/**
 	 * 
@@ -42,7 +42,7 @@ public class Category_Item implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Category_Item other = (Category_Item) obj;
+		CategoryItem other = (CategoryItem) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

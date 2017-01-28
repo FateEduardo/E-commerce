@@ -4,10 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 
 
 @Entity
@@ -16,10 +19,10 @@ public class Cart extends Audit implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-//	@GeneratedValue(strategy=GenerationType.TABLE)
-//	@TableGenerator(name="ORDEN_SEQ",table="tsequence",
-//	pkColumnName="seq_name",valueColumnName="seq_acount",
-//	pkColumnValue="CART",allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	@TableGenerator(name="ORDEN_SEQ",table="tsequence",
+	pkColumnName="seq_name",valueColumnName="seq_acount",
+	pkColumnValue="CART",allocationSize=1)
 	@Column(name="cart_id")
 	private Long id;
 	

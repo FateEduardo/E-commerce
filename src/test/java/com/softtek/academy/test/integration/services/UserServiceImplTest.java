@@ -1,4 +1,4 @@
-package com.softtek.academy.test.services;
+package com.softtek.academy.test.integration.services;
 
 import java.util.List;
 

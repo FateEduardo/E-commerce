@@ -5,15 +5,18 @@ import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 
 
 @MappedSuperclass
-//@EntityListeners(AuditingEntityListener.class)
+@EntityListeners(AuditingEntityListener.class)
 public class Audit implements Serializable{
 
 	/**
@@ -47,12 +50,12 @@ public class Audit implements Serializable{
 
 	
 	
-	//@PreUpdate
+	@PreUpdate
 	public void preUpdate(){
 		updateDate=Calendar.getInstance().getTime();
 	}
 	
-	//@PrePersist
+	@PrePersist
 	public void prePersist(){
 		if(createDate==null){
 			createDate= Calendar.getInstance().getTime();

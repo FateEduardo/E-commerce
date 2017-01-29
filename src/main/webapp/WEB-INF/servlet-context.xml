@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 
-<context:component-scan base-package="com.softtek.jpa.web"></context:component-scan>
+<context:component-scan base-package="com.softtek.academy.web"></context:component-scan>
 <bean id="viewResolver"
 	class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
 </bean>

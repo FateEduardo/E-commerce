@@ -6,37 +6,16 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
-<!-- 	<http auto-config="true"> -->
-<!-- 		<intercept-url pattern="/**" access="Admin"/> -->
-<!-- 	</http> -->
-<!-- 	<beans:bean id="userLogin" class="com.softtek.academy.services.LoginServiceImpl"> -->
-	
-<!-- 	</beans:bean> -->
- 
-<!-- 	<authentication-manager> -->
 
-<!-- 		<authentication-provider> -->
-<!-- 			<jdbc-user-service data-source-ref="dataSource" -->
-<!-- 				users-by-username-query="select username,password from user where username= ?" -->
-<!-- 				authorities-by-username-query="select username,user_role_id from user where username=?" -->
-<!-- 			/> -->
-<!-- <user-service> -->
-
-<!-- <user name="asas"  password="123"  authorities="Admin"/> -->
-<!-- </user-service>  -->
-<!-- 		</authentication-provider> -->
-<!-- 	</authentication-manager> -->
 <http auto-config="true">
 	<intercept-url pattern="/**" access="ROLE_ADMIN" />
 	<intercept-url pattern="/dba**" access="ROLE_ADMIN,ROLE_DBA" />
 </http>
+<beans:bean id="userLogin" class="com.softtek.academy.services.LoginServiceImpl">
 
+</beans:bean>
 	<authentication-manager>
-		<authentication-provider>
-			<jdbc-user-service data-source-ref="dataSource" 
-				users-by-username-query="select username,password from user where username= ?" 
-				authorities-by-username-query="select username,user_role_id from user where username=?" 
- 			/> 
+		<authentication-provider user-service-ref="userLogin">			
 		</authentication-provider>
 	</authentication-manager>
      

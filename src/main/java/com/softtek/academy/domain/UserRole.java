@@ -23,9 +23,9 @@ public class UserRole implements Serializable {
 	@Column(name = "user_role_id")
 	private String id;
 	
-	@OneToMany
-	@JoinColumn(name="username")
-	List<User> users;
+//	@OneToMany
+//	@JoinColumn(name="username")
+//	List<User> users;
 
 	@Column(name = "description")
 	private String description;
@@ -38,13 +38,7 @@ public class UserRole implements Serializable {
 		this.id = id;
 	}
 
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
+	
 
 	public String getDescription() {
 		return description;
@@ -60,7 +54,6 @@ public class UserRole implements Serializable {
 		int result = 1;
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((users == null) ? 0 : users.hashCode());
 		return result;
 	}
 
@@ -83,17 +76,13 @@ public class UserRole implements Serializable {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (users == null) {
-			if (other.users != null)
-				return false;
-		} else if (!users.equals(other.users))
-			return false;
+	
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "UserRole [id=" + id + ", users=" + users + ", description=" + description + "]";
+		return "UserRole [id=" + id + ", description=" + description + "]";
 	}
 	
 	

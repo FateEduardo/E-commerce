@@ -20,4 +20,11 @@ public class UserServiceImpl implements UserService{
 		return userRepository.findAll();
 	}
 
+	@Override
+	public User findOne(String username) {
+		// TODO Auto-generated method stub
+		User user=userRepository.findOne(username);
+		return user;
+	}
+
 }

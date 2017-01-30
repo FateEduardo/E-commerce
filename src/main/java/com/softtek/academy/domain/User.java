@@ -3,7 +3,9 @@ package com.softtek.academy.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -31,12 +33,11 @@ public class User implements Serializable{
 	private  UserRole role;
 	
 	@Column(name = "active")
-	private String status;
+	@Convert(converter=StausToBoolean.class)
+	private Boolean status;
 	
 	@Column(name = "password")
 	private String password;
-	
-	
 
 	public String getUsername() {
 		return username;
@@ -62,11 +63,11 @@ public class User implements Serializable{
 		this.role = role;
 	}
 
-	public String getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
 
@@ -132,9 +133,9 @@ public class User implements Serializable{
 		return "User [username=" + username + ", name=" + name + ", role=" + role + ", status=" + status + ", password="
 				+ password + "]";
 	}
+	
+	
 
-	
-	
 	
 
 }

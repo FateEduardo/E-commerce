@@ -1,18 +1,22 @@
 package com.softtek.academy.domain;
 
-//@Convert
-public class StausToBoolean  {
+import javax.persistence.AttributeConverter;
+import javax.persistence.Convert;
 
-//	@Override
-//	public Boolean convertToDatabaseColumn(String arg0) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public String convertToEntityAttribute(Boolean arg0) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+@Convert
+public class StausToBoolean  implements AttributeConverter<Boolean, String>{
+
+	@Override
+	public String convertToDatabaseColumn(Boolean status) {
+		// TODO Auto-generated method stub
+		return (status)?"S":"N"; 
+	}
+
+	@Override
+	public Boolean convertToEntityAttribute(String status) {
+		// TODO Auto-generated method stub
+		return (status.equals("S"))?true:false;
+		
+	}
 
 }

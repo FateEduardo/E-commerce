@@ -36,12 +36,15 @@ public class UserServiceImplTest  {
 	@DatabaseSetup(value="/dataset/scenario1User.xml", type=DatabaseOperation.CLEAN_INSERT)
 	public void testUserServiceListUserNotNull() {
 		List<User>users=userService.findAll();
+		System.out.println(users);
 		Assert.assertNotNull(users);
 	}
 	
-	@Ignore
-	public void test(){
-		
+	@Test
+	@DatabaseSetup(value="/dataset/scenario1User.xml", type=DatabaseOperation.CLEAN_INSERT)
+	public void testFindOneUserAsUsername(){
+		User user=userService.findOne("admin");
+		Assert.assertNotNull(user.getName().equals("admin"));
 	}
 
 }

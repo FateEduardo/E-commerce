@@ -26,7 +26,6 @@ public class LoginServiceImpl implements UserDetailsService {
 		// TODO Auto-generated method stub
 		
 		User user =userService.findOne(ssoId);
-		System.err.println(ssoId);
 		if(user==null){
 			//System.out.println(username);
 			throw new UsernameNotFoundException("Username not found");

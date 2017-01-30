@@ -13,11 +13,12 @@
 		<intercept-url pattern="/resources/**" access="permitAll" />
 		<intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" />
 		<form-login
-		    login-page="/login?"
+		    login-page="/login"
 		    default-target-url="/"
 			authentication-failure-url="/login"
+			
 			 />
-		
+		<access-denied-handler error-page="/login" />
 		<!-- enable csrf protection -->
 	
 	</http>

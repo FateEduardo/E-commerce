@@ -51,13 +51,13 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
 
       out.write("<br/>\r\n");
-      out.write("<div class=\"container-center\" >\r\n");
+      out.write("<div class=\"container-center\" data-ng-controller=\"loginController\">\r\n");
       out.write("\t\t\t\t<form class=\"well\" name='f' action='/academy/j_spring_security_check' method='POST'>\r\n");
       out.write("\t\t\t\t\t<div class=\"container\">\r\n");
       out.write("\t\t\t\t\t\t<div class=\"form-group\">\r\n");
       out.write("\t\t\t\t\t\t\t<div class=\"col-sm-6\">\r\n");
       out.write("\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control input-group-lg\" name=\"j_username\"\r\n");
-      out.write("\t\t\t\t\t\t\t\t\tplaceholder=\"User Name\" required\r\n");
+      out.write("\t\t\t\t\t\t\t\t\tplaceholder=\"User Name\" data-ng-required=\"true\"\r\n");
       out.write("\t\t\t\t\t\t\t\t\t>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\r\n");
       out.write("\r\n");
@@ -70,7 +70,8 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t\t<div class=\"col-sm-6\">\r\n");
       out.write("\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control input-group-lg\"\r\n");
       out.write("\t\t\t\t\t\t\t\t\tname=\"j_password\"\r\n");
-      out.write("\t\t\t\t\t\t\t\t\tplaceholder=\"Password*\" required>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\tplaceholder=\"Password*\" data-ng-required=\"true\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\r\n");
       out.write("\t\t\t\t\t\t\t</div>\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -78,9 +79,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t\t\t<br /> <br />\r\n");
       out.write("\t\t\t\t\t\t<div class=\"form-group\">\r\n");
       out.write("\t\t\t\t\t\t\t<div class=\"col-sm-6\">\r\n");
-      out.write("\t\t\t\t\t\t\t\t<input name=\"submit\" type=\"submit\" value=\"Login\"\r\n");
-      out.write("\t\t\t\t\t\t\t\t\tdata-ng-disabled=\"myForm.$invalid\">\r\n");
-      out.write("\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\t\t<button name=\"submit\" type=\"submit\" class=\"btn btn-info\"\r\n");
+      out.write("\t\t\t\t\t\t\t\t\tdata-ng-disabled=\"f.$invalid\">Submit</button>\r\n");
+      out.write("\t\t\t\t\t\t</div>\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\t\t\t\t\t\t</div>\r\n");

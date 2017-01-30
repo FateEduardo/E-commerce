@@ -51,8 +51,8 @@ public class LoginServiceImpl implements UserDetailsService {
         return authorities;
     }
 	private String roleValid(String role){
-		if(role.equals("ROLE_ADMIN")){
-			return "ROLE_ADMIN";
+		if(!role.isEmpty()){
+			return role;
 		}
 		return "OTHER_ROLE";
 	}

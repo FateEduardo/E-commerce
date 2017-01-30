@@ -71,6 +71,10 @@ h2.section-title{
     border-color: #121212;
     color: #fff;
 }
+.container-centers{
+	margin-left: 27%;
+	margin-right: 21%;
+}
 .container-center{
 	margin-left: 27%;
 	margin-right: 21%;
@@ -78,3 +82,5 @@ h2.section-title{
 .form-group .ng-invalid.ng-touched {
   border: 1px solid red;
 }
+
+

@@ -9,10 +9,7 @@
 	<definition name="login" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
 		<put-attribute name="menu" value=""></put-attribute>
-		<put-attribute name="carousel" value=""></put-attribute>
-		<put-list-attribute name="stylesheets"  inherit="true">
-		 <add-attribute value="/resources/css/login.css" />
-		</put-list-attribute>
 	</definition>
+	
 </tiles-definitions>
 

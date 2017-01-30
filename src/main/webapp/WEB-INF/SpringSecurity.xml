@@ -7,10 +7,20 @@
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
 
-<http auto-config="true">
-	<intercept-url pattern="/**" access="ROLE_ADMIN" />
-	<intercept-url pattern="/dba**" access="ROLE_ADMIN,ROLE_DBA" />
-</http>
+
+	<http auto-config="true" use-expressions="true">
+		<intercept-url pattern="/login*" access="permitAll" />
+		<intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" />
+		<form-login
+		    login-page="/login"
+		    default-target-url="/"
+			authentication-failure-url="/login?error"
+			username-parameter="username"
+			password-parameter="password" />
+		<logout logout-success-url="/login?logout" />
+		<!-- enable csrf protection -->
+		<csrf/>
+	</http>
 <beans:bean id="userLogin" class="com.softtek.academy.services.LoginServiceImpl">
 
 </beans:bean>

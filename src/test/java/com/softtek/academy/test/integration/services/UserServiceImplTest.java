@@ -44,7 +44,8 @@ public class UserServiceImplTest  {
 	@DatabaseSetup(value="/dataset/scenario1User.xml", type=DatabaseOperation.CLEAN_INSERT)
 	public void testFindOneUserAsUsername(){
 		User user=userService.findOne("admin");
-		Assert.assertNotNull(user.getName().equals("admin"));
+		System.out.println(user);
+		Assert.assertTrue(user.getName().equals("admin"));
 	}
 
 }

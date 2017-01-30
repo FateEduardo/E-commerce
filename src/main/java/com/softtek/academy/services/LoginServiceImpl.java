@@ -24,8 +24,9 @@ public class LoginServiceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String ssoId) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		
+		System.out.println(ssoId);
 		User user =userService.findOne(ssoId);
+		System.out.println(user);
 		if(user==null){
 			//System.out.println(username);
 			throw new UsernameNotFoundException("Username not found");

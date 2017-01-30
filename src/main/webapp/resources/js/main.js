@@ -1,11 +1,11 @@
-//MyApp=angular.module('MyApp', ['ngCookies']);
+MyApp=angular.module('MyApp', ['ngCookies']);
 //
 //MyApp.controller('loginController', function($scope,loginService,$cookieStore) {
-//	$scope.username = {};
-//	$scope.password={};
+//	$scope.username ;
+//	$scope.password;
 //	
 //	$scope.login=function(){
-//		loginService.login($scope.username,$scope.password)
+//		loginService.login($scope.username)
 //		.then(
 //				function(d) {
 //					$scope.userList = angular.copy(d);
@@ -30,10 +30,10 @@
 //	var URL='http://localhost:8080/academy/j_spring_security_check'
 //
 //	
-//	function login(username,password){
-//		
+//	function login(username){
+//		console.log(username)
 //		var deferred = $q.defer();
-//		$http.post(URL,username,password)
+//		$http.post(URL,username)
 //		.then(
 //				function (response) {
 //					deferred.resolve(response.data);

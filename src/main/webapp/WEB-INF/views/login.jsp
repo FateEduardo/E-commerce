@@ -1,13 +1,13 @@
 <br/>
-<div class="container-center" data-ng-controller="loginController" >
-				<form class="well" name="myForm" data-ng-submit="login()">
+<div class="container-center" >
+				<form class="well" name='f' action='/academy/j_spring_security_check' method='POST'>
 					<div class="container">
 						<div class="form-group">
 							<div class="col-sm-6">
-								<input type="text" class="form-control input-group-lg"
-									placeholder="User Name" data-ng-required="true"
-									data-ng-model="username">
-<!-- 																	data-ng-value="" data-ng-model="user.password" name="password" -->
+								<input type="text" class="form-control input-group-lg" name="j_username"
+									placeholder="User Name" required
+									>
+															
 
 
 </div>
@@ -17,8 +17,8 @@
 						<div class="form-group">
 							<div class="col-sm-6">
 								<input type="password" class="form-control input-group-lg"
-									data-ng-value="" data-ng-model="password" name="password"
-									placeholder="Password*" data-ng-required="true">
+									name="j_password"
+									placeholder="Password*" required>
 							</div>
 
 
@@ -26,9 +26,8 @@
 								<br /> <br />
 						<div class="form-group">
 							<div class="col-sm-6">
-								<button type="submit" class="btn btn-info"
-									data-ng-click="submitted= true;"
-									data-ng-disabled="myForm.$invalid">Submit</button>
+								<input name="submit" type="submit" value="Login"
+									data-ng-disabled="myForm.$invalid">
 							</div>
 
 

@@ -22,13 +22,13 @@ public class LoginServiceImpl implements UserDetailsService {
 
     
 	@Override
-	public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String ssoId) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		
-		User user =userService.findOne(username);
-		System.err.println(user);
+		User user =userService.findOne(ssoId);
+		System.err.println(ssoId);
 		if(user==null){
-			System.out.println(username);
+			//System.out.println(username);
 			throw new UsernameNotFoundException("Username not found");
 		}
 		 boolean accountNonExpired = true;

@@ -8,4 +8,6 @@ public interface UserService {
 	
 	List<User> findAll();
 	User findOne(String username);
+	boolean save(User user);
+	boolean isValid(User user);
 }

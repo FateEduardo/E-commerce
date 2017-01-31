@@ -1,39 +1,38 @@
 MyApp=angular.module('MyApp', ['ngCookies']);
 
-MyApp.controller('loginController', function($scope,loginService,$cookieStore) {
-	$scope.username ;
-	$scope.password;
-	
+MyApp.controller('loginController',function($scope,loginService,$cookieStore){
+
+	$scope.user=null;
+
 	$scope.login=function(){
-		loginService.login($scope.username)
+		
+		loginService.login()
 		.then(
 				function(d) {
-					$scope.userList = angular.copy(d);
-
+					
+					$scope.user = angular.copy(d);
+					console.log($scope.user);
 				},
 				function(errResponse){
 					console.error('Error while fetching Users');
 				}
 		);
-		
-	}
+	
 
-
+	};
 
 });
 
-/////
-MyApp.factory('loginService',function($http,$q,$window){
+MyApp.factory('loginService',function($http,$q){
 	var service={
 			login:login
 	};
-	var URL='http://localhost:8080/academy/j_spring_security_check'
-
 	
-	function login(username){
-		console.log(username)
+	var URL='http://localhost:8080/academy'
+		function login(){
+		console.log("login")
 		var deferred = $q.defer();
-		$http.post(URL,username)
+		$http.get(URL+'/userName')
 		.then(
 				function (response) {
 					deferred.resolve(response.data);
@@ -42,12 +41,12 @@ MyApp.factory('loginService',function($http,$q,$window){
 				function(errResponse){
 					console.error('Error while fetching Users');
 					deferred.reject(errResponse);
+					console.log(errResponse)
 				}
 		);
 		return deferred.promise;
 	}
 
-	
-	
 	return service;
+
 });

@@ -27,4 +27,39 @@ public class UserServiceImpl implements UserService{
 		return user;
 	}
 
+	@Override
+	public boolean save(User user) {
+		// TODO Auto-generated method stub
+		if(isValid(user)){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean isValid(User user) {
+		// TODO Auto-generated method stub
+		if(user.getUsername()==null || user.getUsername().isEmpty()){
+			return false;
+		}
+		if(user.getName()==null||user.getName().isEmpty()){
+			return false;
+		}
+		if(user.getPassword()==null||user.getPassword().isEmpty()){
+			return false;
+		}
+		if(user.getStatus()==null){
+			return false;
+		}
+		if(user.getRole()==null){
+			if(user.getRole().getDescription()==null||user.getRole().getDescription().isEmpty()){
+				return false;
+			}
+			if(user.getRole().getId()==null||user.getRole().getId().isEmpty()){
+				return false;
+			}
+		}
+		return true;
+	}
+
 }

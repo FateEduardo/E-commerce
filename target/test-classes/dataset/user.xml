@@ -2,9 +2,9 @@
   <user_role user_role_id="ADM" description="Admin"/>
   <user_role user_role_id="USR" description="Registered User"/>
 
-  <user username="admin" password="123" name="raul" user_role_id="ADM" active="N"/>
-  <user username="carlos.fuentes" password="456" name="Carlos Fuentes" user_role_id="USR" active="S"/>
-  <user username="jorge.gonzalez" password="jorge.gonzalez" name="Jorge Gonzalez" user_role_id="USR" active="S"/>
+  <user username="admin" password="123" name="raul" user_role_id="ROLE_ADMIN" active="S"/>
+  <user username="dani" password="dani" name="dani" user_role_id="ROLE_USR" active="S"/>
+
 
   
 </dataset>

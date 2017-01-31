@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class bodyAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -62,105 +62,55 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_c_005fset_005f0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("<div data-ng-controller=\"loginController\" data-ng-init=\"login()\">\n");
-      out.write("\t<nav class=\"navbar navbar-default navbar-fixed-top\">\n");
-      out.write("\t\t<div class=\"container\">\n");
-      out.write("\t\t\t<div class=\"navbar-header\">\n");
-      out.write("\t\t\t\t<button type=\"button\" class=\"navbar-toggle collapsed\"\n");
-      out.write("\t\t\t\t\tdata-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\"\n");
-      out.write("\t\t\t\t\taria-controls=\"navbar\">\n");
-      out.write("\t\t\t\t\t<span class=\"sr-only\">Toggle navigation</span> <span\n");
-      out.write("\t\t\t\t\t\tclass=\"icon-bar\"></span> <span class=\"icon-bar\"></span> <span\n");
-      out.write("\t\t\t\t\t\tclass=\"icon-bar\"></span>\n");
-      out.write("\t\t\t\t</button>\n");
-      out.write("\n");
-      out.write("\t\t\t\t<a class=\"navbar-brand\" data-ng-href=\"#\">Academy</a>\n");
-      out.write("\t\t\t</div>\n");
-      out.write("\t\t\t<div id=\"navbar\" class=\"navbar-collapse collapse\">\n");
-      out.write("\t\t\t\t<ul class=\"nav navbar-nav\">\n");
-      out.write("\t\t\t\t\t<li class=\"active\"><a\n");
-      out.write("\t\t\t\t\t\tdata-ng-href=\"");
+      out.write("<section id=\"what-we-do\" class=\"what-we-do\">\n");
+      out.write("\t<div class=\"container\">\n");
+      out.write("\t\t<div class=\"row\">\n");
+      out.write("\t\t\t<div class=\"col-md-10 col-md-offset-1\">\n");
+      out.write("\t\t\t\t<a href=\"");
       if (_jspx_meth_c_005furl_005f0(_jspx_page_context))
         return;
-      out.write("\">Home</a></li>\n");
-      out.write("\t\t\t\t\t<li class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle\"\n");
-      out.write("\t\t\t\t\t\tdata-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\"\n");
-      out.write("\t\t\t\t\t\taria-expanded=\"false\">List <span class=\"caret\"></span></a>\n");
-      out.write("\t\t\t\t\t\t<ul class=\"dropdown-menu\">\n");
-      out.write("\t\t\t\t\t\t\t<li><a data-ng-href=\"");
+      out.write("\">\n");
+      out.write("\t\t\t\t\t\n");
+      out.write("\t\t\t\t\t\t<div class=\"col-md-6 col-sm-6 col-xs-12\">\n");
+      out.write("\t\t\t\t\t\t\t<div class=\"do-box text-center\">\n");
+      out.write("\t\t\t\t\t\t\t\t<i class=\"lnr lnr-inbox\"> <img class=\"img-i\"\n");
+      out.write("\t\t\t\t\t\t\t\t\tsrc=\"");
       if (_jspx_meth_c_005furl_005f1(_jspx_page_context))
         return;
-      out.write("\">Item</a></li>\n");
-      out.write("\t\t\t\t\t\t\t<li><a data-ng-href=\"");
+      out.write("\" alt=\"User\">\n");
+      out.write("\t\t\t\t\t\t\t\t</i>\n");
+      out.write("\t\t\t\t\t\t\t\t<h3>User</h3>\n");
+      out.write("\t\t\t\t\t\t\t\t<p>\n");
+      out.write("\t\t\t\t\t\t\t\t<h4>Create a new user.</h4>\n");
+      out.write("\t\t\t\t\t\t\t\t</p>\n");
+      out.write("\t\t\t\t\t\t\t</div>\n");
+      out.write("\t\t\t\t\t\t</div>\n");
+      out.write("\t\t\t\t\n");
+      out.write("\t\t\t\t</a>\n");
+      out.write("\t\t\t\t<div class=\"col-md-6 col-sm-6 col-xs-12\">\n");
+      out.write("\t\t\t\t\t<a href=\"");
       if (_jspx_meth_c_005furl_005f2(_jspx_page_context))
         return;
-      out.write("\">User</a></li>\n");
-      out.write("\t\t\t\t\t\t</ul></li>\n");
-      out.write("\t\t\t\t</ul>\n");
-      out.write("\t\t\t\t<ul data-ng-show=\"user!=null\" class=\"nav navbar-nav navbar-right\">\n");
-      out.write("\t\t\t\t\t<li class=\"dropdown\"><a href=\"#\"\n");
-      out.write("\t\t\t\t\t\t  >{{user.name}} <span class=\"\"></span></a>\n");
-      out.write("\t\t\t\t\t</li>\n");
-      out.write("\n");
-      out.write("\t\t\t\t</ul>\n");
-      out.write("\t\t\t\t<ul data-ng-show=\"user==null\" class=\"nav navbar-nav navbar-right\">\n");
-      out.write("\t\t\t\t\t<li class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle\"\n");
-      out.write("\t\t\t\t\t\tdata-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\"\n");
-      out.write("\t\t\t\t\t\taria-expanded=\"false\">Login <span class=\"caret\"></span></a>\n");
-      out.write("\t\t\t\t\t\t<ul class=\"dropdown-menu\">\n");
-      out.write("\t\t\t\t\t\t\t<li>\n");
-      out.write("\t\t\t\t\t\t\t\t<div class=\"container\">\n");
-      out.write("\t\t\t\t\t\t\t\t\t<!-- form here -->\n");
-      out.write("\t\t\t\t\t\t\t\t\t<br />\n");
-      out.write("\t\t\t\t\t\t\t\t\t<form class=\"well\" name='f'\n");
-      out.write("\t\t\t\t\t\t\t\t\t\taction='/academy/j_spring_security_check' method='POST'>\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t<div class=\"container\">\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control input-group-lg\"\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"j_username\" placeholder=\"User Name\"\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\tdata-ng-required=\"true\">\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t</div>\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t</div>\n");
-      out.write("\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t<br /> <br />\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control input-group-lg\"\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"j_password\" placeholder=\"Password*\"\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\tdata-ng-required=\"true\">\n");
-      out.write("\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t</div>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t</div>\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t<br /> <br />\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<button name=\"submit\" type=\"submit\" class=\"btn btn-info\"\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\tdata-ng-disabled=\"f.$invalid\">Submit</button>\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t</div>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t</div>\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t</div>\n");
-      out.write("\t\t\t\t\t\t\t\t\t</form>\n");
-      out.write("\t\t\t\t\t\t\t\t</div> <!-- /container -->\n");
-      out.write("\t\t\t\t\t\t\t</li>\n");
-      out.write("\n");
-      out.write("\t\t\t\t\t\t</ul></li>\n");
-      out.write("\n");
-      out.write("\t\t\t\t</ul>\n");
-      out.write("\n");
+      out.write("\">\n");
+      out.write("\t\t\t\t\t\t<div class=\"do-box text-center\">\n");
+      out.write("\t\t\t\t\t\t\t<i class=\"lnr lnr-leaf\"> <img class=\"img-i\"\n");
+      out.write("\t\t\t\t\t\t\t\tsrc=\"");
+      if (_jspx_meth_c_005furl_005f3(_jspx_page_context))
+        return;
+      out.write("\" alt=\"User\">\n");
+      out.write("\t\t\t\t\t\t\t</i>\n");
+      out.write("\t\t\t\t\t\t\t<h3>Item</h3>\n");
+      out.write("\t\t\t\t\t\t\t<p>\n");
+      out.write("\t\t\t\t\t\t\t<h4>Create a new Item.</h4>\n");
+      out.write("\t\t\t\t\t\t\t</p>\n");
+      out.write("\t\t\t\t\t\t</div>\n");
+      out.write("\t\t\t\t\t</a>\n");
+      out.write("\t\t\t\t</div>\n");
       out.write("\t\t\t</div>\n");
-      out.write("\t\t\t<!--/.nav-collapse -->\n");
       out.write("\t\t</div>\n");
-      out.write("\t</nav>\n");
-      out.write("</div>\n");
-      out.write("\n");
+      out.write("\t</div>\n");
+      out.write("\t</div>\n");
+      out.write("</section>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -181,10 +131,10 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_005fset_005f0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
     _jspx_th_c_005fset_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fset_005f0.setParent(null);
-    // /WEB-INF/views/menu.jsp(3,0) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/bodyAdmin.jsp(3,0) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fset_005f0.setVar("contextPath");
-    // /WEB-INF/views/menu.jsp(3,0) name = value type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fset_005f0.setValue(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/menu.jsp(3,0) '${pageContext.request.contextPath}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${pageContext.request.contextPath}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/views/bodyAdmin.jsp(3,0) name = value type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fset_005f0.setValue(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/bodyAdmin.jsp(3,0) '${pageContext.request.contextPath}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${pageContext.request.contextPath}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
     int _jspx_eval_c_005fset_005f0 = _jspx_th_c_005fset_005f0.doStartTag();
     if (_jspx_th_c_005fset_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.reuse(_jspx_th_c_005fset_005f0);
@@ -202,8 +152,8 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f0.setParent(null);
-    // /WEB-INF/views/menu.jsp(21,20) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f0.setValue("/Cart/home");
+    // /WEB-INF/views/bodyAdmin.jsp(8,13) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f0.setValue("/User/addView");
     int _jspx_eval_c_005furl_005f0 = _jspx_th_c_005furl_005f0.doStartTag();
     if (_jspx_th_c_005furl_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f0);
@@ -221,8 +171,8 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f1 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f1.setParent(null);
-    // /WEB-INF/views/menu.jsp(26,28) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f1.setValue("/Cart/ListView");
+    // /WEB-INF/views/bodyAdmin.jsp(13,14) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f1.setValue("/resources/images/user.png");
     int _jspx_eval_c_005furl_005f1 = _jspx_th_c_005furl_005f1.doStartTag();
     if (_jspx_th_c_005furl_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f1);
@@ -240,14 +190,33 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f2 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f2.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f2.setParent(null);
-    // /WEB-INF/views/menu.jsp(27,28) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f2.setValue("/User/ListView");
+    // /WEB-INF/views/bodyAdmin.jsp(24,14) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f2.setValue("/Cart/addView");
     int _jspx_eval_c_005furl_005f2 = _jspx_th_c_005furl_005f2.doStartTag();
     if (_jspx_th_c_005furl_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f2);
       return true;
     }
     _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f2);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_005furl_005f3(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:url
+    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f3 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
+    _jspx_th_c_005furl_005f3.setPageContext(_jspx_page_context);
+    _jspx_th_c_005furl_005f3.setParent(null);
+    // /WEB-INF/views/bodyAdmin.jsp(27,13) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f3.setValue("/resources/images/item.png");
+    int _jspx_eval_c_005furl_005f3 = _jspx_th_c_005furl_005f3.doStartTag();
+    if (_jspx_th_c_005furl_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f3);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f3);
     return false;
   }
 }

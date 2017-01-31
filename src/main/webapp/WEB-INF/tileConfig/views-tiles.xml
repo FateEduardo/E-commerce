@@ -4,15 +4,15 @@
 "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<definition name="home" extends="DefaultTemplate">
-		<put-attribute name="body" value="" />
-		<put-attribute name="menu" value=""></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/bodyUser.jsp" />
+		
 	</definition>
 	<definition name="login" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
 		<put-attribute name="menu" value=""></put-attribute>
 	</definition>
 	<definition name="adminHome" extends="DefaultTemplate">
-		<put-attribute name="body" value="/WEB-INF/views/body.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/bodyAdmin.jsp" />
 	</definition>
 </tiles-definitions>
 

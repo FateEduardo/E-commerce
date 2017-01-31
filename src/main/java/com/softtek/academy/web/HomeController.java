@@ -2,6 +2,7 @@ package com.softtek.academy.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -9,6 +10,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.softtek.academy.domain.User;
+import com.softtek.academy.services.UserService;
 
 
 @Controller
@@ -19,6 +23,10 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	
+	@Autowired
+	UserService userService;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		return "home";
@@ -33,29 +41,30 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/redirect", method = RequestMethod.GET)
 	public String redirect() {
-		logger.info("si entro");
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		final String role=auth.getAuthorities().toString();
-		logger.info(role);
-		System.err.println(role);
-		if(role.equals("admin")){
+		if(role.equals("[ROLE_ADMIN]")){
 			return "redirect:/admin/home";
 					
 		}
-		return "redirect:/admin/home";
+		return "redirect:/";
 	}
-	@SuppressWarnings("null")
+	
 	@RequestMapping(value = "/userName", method = RequestMethod.GET)
 	public ResponseEntity<?>  logName() {
+		final User user;
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		
 		if(auth!=null){
-			final String role=auth.getName();
-			if(role==null &&role.isEmpty()){
+			 user=userService.findOne(auth.getName());
+			if(user==null ){
 				return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
 			}
-			return new ResponseEntity<String>(role, HttpStatus.OK);
+			return new ResponseEntity<User>(user, HttpStatus.OK);
 		}
-		return  new ResponseEntity<String>("", HttpStatus.OK);
+
+		user=null;
+		return  new ResponseEntity<User>(user, HttpStatus.OK);
 		
 	}
 }

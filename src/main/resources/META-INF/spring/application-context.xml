@@ -27,7 +27,7 @@
 
 		</property>
 	</bean>
-<context:property-placeholder location="classpath:META-INF/spring/project-localdev.properties"/>
+<!-- <context:property-placeholder location="classpath:META-INF/spring/project-localdev.properties"/> -->
 	<jpa:repositories base-package="com.softtek.academy.repository"
 		entity-manager-factory-ref="entityManagerFactory" />
 

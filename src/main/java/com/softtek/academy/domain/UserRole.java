@@ -23,10 +23,6 @@ public class UserRole implements Serializable {
 	@Column(name = "user_role_id")
 	private String id;
 	
-//	@OneToMany
-//	@JoinColumn(name="username")
-//	List<User> users;
-
 	@Column(name = "description")
 	private String description;
 

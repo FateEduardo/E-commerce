@@ -39,13 +39,6 @@ CREATE TABLE SHIP_TO (
     ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE PAYMENT_METHOD (
-  payment_method_id VARCHAR(5) NOT NULL,
-  description VARCHAR(100),
-
-  PRIMARY KEY(payment_method_id)
-) ENGINE=InnoDB;
-
 CREATE TABLE CATEGORY(
 	category_id INTEGER NOT NULL,
 	description VARCHAR(100),

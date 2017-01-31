@@ -40,9 +40,7 @@ public class Cart extends Audit implements Serializable {
 	@JoinColumn(name = "ship_to_id")
 	private ShipTo shipTo;
 	
-	@ManyToOne
-	@JoinColumn(name = "payment_id")
-	private Payment payment;
+
 
 	public Long getId() {
 		return id;
@@ -84,13 +82,7 @@ public class Cart extends Audit implements Serializable {
 		this.shipTo = shipTo;
 	}
 
-	public Payment getPayment() {
-		return payment;
-	}
 
-	public void setPayment(Payment payment) {
-		this.payment = payment;
-	}
 
 	@Override
 	public int hashCode() {
@@ -98,7 +90,6 @@ public class Cart extends Audit implements Serializable {
 		int result = super.hashCode();
 		result = prime * result + ((cartAmount == null) ? 0 : cartAmount.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((payment == null) ? 0 : payment.hashCode());
 		result = prime * result + ((shipTo == null) ? 0 : shipTo.hashCode());
 		result = prime * result + ((shippingAmount == null) ? 0 : shippingAmount.hashCode());
 		result = prime * result + ((staus == null) ? 0 : staus.hashCode());
@@ -124,11 +115,6 @@ public class Cart extends Audit implements Serializable {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (payment == null) {
-			if (other.payment != null)
-				return false;
-		} else if (!payment.equals(other.payment))
-			return false;
 		if (shipTo == null) {
 			if (other.shipTo != null)
 				return false;
@@ -150,7 +136,7 @@ public class Cart extends Audit implements Serializable {
 	@Override
 	public String toString() {
 		return "Cart [id=" + id + ", shippingAmount=" + shippingAmount + ", cartAmount=" + cartAmount + ", staus="
-				+ staus + ", shipTo=" + shipTo + ", payment=" + payment + "]";
+				+ staus + ", shipTo=" + shipTo  + "]";
 	}
 	
 	

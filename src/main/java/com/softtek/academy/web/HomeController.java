@@ -54,7 +54,7 @@ public class HomeController {
 	public ResponseEntity<?>  logName() {
 		final User user;
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		
+		logger.info(auth.getName());
 		if(auth!=null){
 			 user=userService.findOne(auth.getName());
 			if(user==null ){

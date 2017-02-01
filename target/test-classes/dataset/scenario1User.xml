@@ -1,3 +1,9 @@
 <dataset>
+  <user_role user_role_id="ROLE_ADMIN" description="Admin"/>
+  <user_role user_role_id="ROLE_USR" description="Registered User"/>
+
+  <user username="admin" password="admin" name="admin" user_role_id="ROLE_ADMIN" active="S"/>
+  <user username="dani" password="dani" name="dani" user_role_id="ROLE_USR" active="S"/>
+  <user username="eduardo" password="eduardo" name="eduardo" user_role_id="ROLE_USR" active="S"/>
 
 </dataset>

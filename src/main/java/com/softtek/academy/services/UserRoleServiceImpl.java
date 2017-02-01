@@ -19,5 +19,6 @@ public class UserRoleServiceImpl implements UserRoleService{
 		// TODO Auto-generated method stub
 		return userRoleRepository.findAll();
 	}
+	
 
 }

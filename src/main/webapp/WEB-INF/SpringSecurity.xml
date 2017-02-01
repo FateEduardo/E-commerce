@@ -11,18 +11,16 @@
 	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="/login*" access="permitAll" />
 		<intercept-url pattern="/resources/**" access="permitAll" />
-		<intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USR')" />
-		<form-login
-		    login-page="/login"
-		    default-target-url="/redirect"
-			authentication-failure-url="/login"
-			always-use-default-target="true"
-			 />
+<!-- 		<intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USR')" /> -->
+		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+		<form-login login-page="/login" default-target-url="/redirect"
+			authentication-failure-url="/login" always-use-default-target="true" />
 		<access-denied-handler error-page="/login" />
 		<!-- enable csrf protection -->
-	
+
 	</http>
-<beans:bean id="userLogin" class="com.softtek.academy.services.LoginServiceImpl">
+	<beans:bean id="userLogin"
+		class="com.softtek.academy.services.LoginServiceImpl">
 
 </beans:bean>
 	<authentication-manager>

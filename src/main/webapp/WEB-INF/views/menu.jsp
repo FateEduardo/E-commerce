@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <div data-ng-controller="loginController" data-ng-init="login()">
@@ -23,8 +23,14 @@
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">List <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a data-ng-href="<c:url value="/Cart/ListView"/>">Item</a></li>
-							<li><a data-ng-href="<c:url value="/User/ListView"/>">User</a></li>
+							<sec:authorize ifAnyGranted="ROLE_ADMIN">
+								<li><a data-ng-href="<c:url value="/admin/listItemView"/>">Item</a></li>
+								<li><a data-ng-href="<c:url value="/admin/listUserView"/>">User</a></li>
+							</sec:authorize>
+							<sec:authorize ifAnyGranted="ROLE_USR">
+								<li><a data-ng-href="<c:url value="/admin/listItemView"/>">Shoes</a></li>
+								<li><a data-ng-href="<c:url value="/admin/listUserView"/>">Sweater</a></li>
+							</sec:authorize>
 						</ul></li>
 				</ul>
 				<ul data-ng-show="user!=null" class="nav navbar-nav navbar-right">
@@ -33,7 +39,8 @@
 					</li>
 
 				</ul>
-				<ul data-ng-show="user==null" class="nav navbar-nav navbar-right">
+			 <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
+				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Login <span class="caret"></span></a>
@@ -84,7 +91,10 @@
 						</ul></li>
 
 				</ul>
-
+</sec:authorize>
+<sec:authorize  ifNotGranted="ROLE_ANONYMOUS">
+ <a href="<c:url value="/j_spring_security_logout" />" class="navbar-brand navbar-right">Logout</a>
+</sec:authorize>
 			</div>
 			<!--/.nav-collapse -->
 		</div>

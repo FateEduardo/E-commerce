@@ -28,7 +28,7 @@ public class User implements Serializable{
 	@Column(name = "name")
 	private String name;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "user_role_id")
 	private  UserRole role;
 	

@@ -32,7 +32,6 @@ public class UserRoleServiceImplTest extends AbstractTransactionalJUnit4SpringCo
 	@DatabaseSetup(value="/dataset/scenario1User.xml", type=DatabaseOperation.CLEAN_INSERT)
 	public void testRoleListNotNull() {
 		List<UserRole>roles=userRoleService.findAll();
-		System.out.println(roles);
 		Assert.assertNotNull(roles);
 	}
 

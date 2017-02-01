@@ -9,5 +9,6 @@ public interface ItemService {
 	Item findOne(Long id);
 	boolean save(Item item);
 	boolean isValid(Item item);
+	boolean delete(Item item);
 
 }

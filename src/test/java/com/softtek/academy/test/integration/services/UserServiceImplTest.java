@@ -15,7 +15,9 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseOperation;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import com.softtek.academy.domain.User;
+import com.softtek.academy.domain.UserRole;
 import com.softtek.academy.services.UserService;
 
 import junit.framework.Assert;
@@ -32,20 +34,49 @@ public class UserServiceImplTest  {
 	UserService userService;
 
 	@Test
-	@DatabaseSetup(value="/dataset/scenario1User.xml", type=DatabaseOperation.CLEAN_INSERT)
+	@DatabaseSetup(value="/dataset/user.xml", type=DatabaseOperation.CLEAN_INSERT)
 	public void testUserServiceListUserNotNull() {
 		List<User>users=userService.findAll();
-		System.out.println(users);
 		Assert.assertNotNull(users);
 	}
 	
 	@Test
-	@DatabaseSetup(value="/dataset/scenario1User.xml", type=DatabaseOperation.CLEAN_INSERT)
+	@DatabaseSetup(value="/dataset/user.xml", type=DatabaseOperation.CLEAN_INSERT)
 	public void testFindOneUserAsUsername(){
 		User user=userService.findOne("admin");
-		System.out.println(user);
+	
 		Assert.assertTrue(user.getName().equals("admin"));
 	}
+	
+	@Test
+	@ExpectedDatabase("/dataset/scenario1User.xml")
+	public void testUserSave(){
+		User user =new User();
+		user.setName("eduardo");
+		user.setPassword("eduardo");
+		user.setStatus(true);
+		user.setUsername("eduardo");
+		UserRole userRole=new UserRole();
+		userRole.setDescription("Registered User");
+		userRole.setId("ROLE_USR");
+		user.setRole(userRole);
+		userService.save(user);
+		
+	}
+	@Test
+	@ExpectedDatabase("/dataset/scenario2User.xml")
+	public void testUserUpdate(){
+		User user =userService.findOne("dani");
+		user.setName("eduardo");
+		userService.save(user);
+	}
+	@Test
+	@ExpectedDatabase("/dataset/scenario3User.xml")
+	public void testUserDelete(){
+		User user =userService.findOne("dani");
+		userService.delete(user);
+	}
+	
 	
 
 }

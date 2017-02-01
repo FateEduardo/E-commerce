@@ -1,0 +1,9 @@
+<dataset>
+<tsequence seq_name="ITEM" seq_acount="1"/>
+
+  <item item_id="1" features="white" description="big" unit_price="10.0" stock="1" active="S"/>
+  <item item_id="2" features="black" description="small" unit_price="11.0" stock="2" active="S"/>
+
+
+  
+</dataset>

@@ -35,7 +35,7 @@
 	</bean>
 
 	<jdbc:embedded-database type="H2" id="dataSource">
-		<jdbc:script location="/scripts/user.sql" />
+		<jdbc:script location="/scripts/category.sql" />
 
 	</jdbc:embedded-database>
 	

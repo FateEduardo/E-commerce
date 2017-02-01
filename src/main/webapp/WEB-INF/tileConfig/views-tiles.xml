@@ -5,7 +5,6 @@
 <tiles-definitions>
 	<definition name="home" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/bodyUser.jsp" />
-		
 	</definition>
 	<definition name="login" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
@@ -13,6 +12,36 @@
 	</definition>
 	<definition name="adminHome" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/bodyAdmin.jsp" />
+	</definition>
+	<definition name="listItem" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/item/itemList.jsp" />
+		<put-list-attribute name="javascript" inherit="true">
+			<add-attribute value="/resources/js/adminController.js" />
+		</put-list-attribute>
+	</definition>
+		<definition name="listUser" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/user/listUser.jsp" />
+		<put-list-attribute name="javascript" inherit="true">
+			<add-attribute value="/resources/js/adminController.js" />
+		</put-list-attribute>
+	</definition>
+	<definition name="editItem" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/item/editItem.jsp" />
+		<put-list-attribute name="javascript" inherit="true">
+			<add-attribute value="/resources/js/adminController.js" />
+		</put-list-attribute>
+	</definition>
+	<definition name="editUser" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/user/editUser.jsp" />
+		<put-list-attribute name="javascript" inherit="true">
+			<add-attribute value="/resources/js/adminController.js" />
+		</put-list-attribute>
+	</definition>
+	<definition name="newItem" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/item/newItem.jsp" />
+		<put-list-attribute name="javascript" inherit="true">
+			<add-attribute value="/resources/js/adminController.js" />
+		</put-list-attribute>
 	</definition>
 </tiles-definitions>
 

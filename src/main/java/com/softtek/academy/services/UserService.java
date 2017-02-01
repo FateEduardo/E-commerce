@@ -10,4 +10,6 @@ public interface UserService {
 	User findOne(String username);
 	boolean save(User user);
 	boolean isValid(User user);
+	boolean delete(User user);
+	List<String>listStatus();
 }

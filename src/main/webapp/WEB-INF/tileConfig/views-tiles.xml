@@ -43,5 +43,11 @@
 			<add-attribute value="/resources/js/adminController.js" />
 		</put-list-attribute>
 	</definition>
+		<definition name="newUser" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/user/newUser.jsp" />
+		<put-list-attribute name="javascript" inherit="true">
+			<add-attribute value="/resources/js/adminController.js" />
+		</put-list-attribute>
+	</definition>
 </tiles-definitions>
 

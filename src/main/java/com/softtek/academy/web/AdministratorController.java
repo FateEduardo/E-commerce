@@ -62,6 +62,14 @@ public class AdministratorController {
 	public String itemEditView(){
 		return "editItem";
 	}
+	@RequestMapping(value="/newItemView", method = RequestMethod.GET)
+	public String itemNewView(){
+		return "newItem";
+	}
+	@RequestMapping(value="/newUserView", method = RequestMethod.GET)
+	public String userNewView(){
+		return "newUser";
+	}
 	
 	@RequestMapping(value="/listUser", method = RequestMethod.GET)
 	public ResponseEntity<?>  listUser( ) {
@@ -152,4 +160,51 @@ public class AdministratorController {
 		return "redirect:/admin/editItemView";
 		
 	}
+	@RequestMapping(value="/newItem", method = RequestMethod.POST)
+	public String newItem(@RequestBody Item item ) {
+		
+		if(itemService.save(item)){
+			return "redirect:/admin/listItemView";
+		}
+		return "redirect:/admin/editItemView";
+		
+	}
+	@RequestMapping(value="/deleteUser", method = RequestMethod.POST)
+	public String deleteUser(@RequestBody String username ) {
+		User user=userService.findOne(username);
+		
+		if(userService.delete(user)){
+			return "redirect:/admin/listItemView";
+		}
+		return "redirect:/admin/editItemView";
+		
+	}
+	@RequestMapping(value="/newUser", method = RequestMethod.POST)
+	public String newUser(@RequestBody User user) {
+		UserRole userRole=userRoleService.findOne(user.getRole().getId());
+		user.setRole(userRole);
+
+		if(userService.save(user)){
+			return "redirect:/admin/listItemView";
+		}
+		return "redirect:/admin/editItemView";
+		
+	}
+	 
+	 @RequestMapping(value = "/data", method = RequestMethod.GET)
+		public ResponseEntity<?> dataUser() {
+		 User user=new User();
+		 user.setRole(new UserRole());
+		 List<UserRole> userRoleList = userRoleService.findAll();
+		 List<String> listStatus = userService.listStatus();
+		 Map<String,Object>map=new HashMap<String, Object>();
+		 map.put("user", user);
+		 map.put("userRole", userRoleList);
+		 map.put("listStatus", listStatus);
+		 if(userRoleList.isEmpty() && listStatus.isEmpty()  ){
+			 return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+		 }
+		 return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
+
+	 }
 }

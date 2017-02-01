@@ -6,4 +6,5 @@ import com.softtek.academy.domain.UserRole;
 	
 public interface UserRoleService {
 	List<UserRole> findAll();
+	UserRole findOne(String id);
 }

@@ -19,6 +19,12 @@ public class UserRoleServiceImpl implements UserRoleService{
 		// TODO Auto-generated method stub
 		return userRoleRepository.findAll();
 	}
+
+	@Override
+	public UserRole findOne(String id) {
+		// TODO Auto-generated method stub
+		return userRoleRepository.findOne(id);
+	}
 	
 
 }

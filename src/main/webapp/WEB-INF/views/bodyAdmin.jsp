@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<a href="<c:url value="/User/addView"/>">
+				<a href="<c:url value="/admin/newUserView"/>">
 					
 						<div class="col-md-6 col-sm-6 col-xs-12">
 							<div class="do-box text-center">
@@ -21,7 +21,7 @@
 				
 				</a>
 				<div class="col-md-6 col-sm-6 col-xs-12">
-					<a href="<c:url value="/Cart/addView"/>">
+					<a href="<c:url value="/admin/newItemView"/>">
 						<div class="do-box text-center">
 							<i class="lnr lnr-leaf"> <img class="img-i"
 								src="<c:url value="/resources/images/item.png"/>" alt="User">

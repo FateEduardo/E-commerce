@@ -22,5 +22,10 @@ public class CategoryServiceImpl implements CategoryService{
 		// TODO Auto-generated method stub
 		return categoryRepository.findOne(id);
 	}
+	@Override
+	public List<Category> findCategoryByItemId(Long id) {
+		// TODO Auto-generated method stub
+		return categoryRepository.findCategoryByItemId(id);
+	}
 
 }

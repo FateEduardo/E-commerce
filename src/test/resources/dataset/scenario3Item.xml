@@ -1,0 +1,11 @@
+<dataset>
+<tsequence seq_name="ITEM" seq_acount="1"/>
+<category category_id="1" description="SHOES"/>
+<category category_id="2" description="OTHER"/>
+  <item item_id="1" features="white" description="big" unit_price="10.0" stock="1" active="S"/>
+  <item item_id="2" features="black" description="small" unit_price="11.0" stock="2" active="S"/>
+
+<category_item category_id="1" item_id="1"/>
+<category_item category_id="1" item_id="2"/>
+  
+</dataset>

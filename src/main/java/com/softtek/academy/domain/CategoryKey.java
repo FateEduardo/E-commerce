@@ -11,6 +11,15 @@ public class CategoryKey implements Serializable{
 	/**
 	 * 
 	 */
+	public CategoryKey(Long id,Long category){
+		this.id=new Category();
+		this.id.setId(category);
+		this.item=new Item();
+		item.setId(id);
+	}
+	public CategoryKey(){
+		
+	}
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="category_id")
@@ -19,6 +28,7 @@ public class CategoryKey implements Serializable{
 	@Column(name="item_id")
 	private Item item;
 	
+
 	public Category getId() {
 		return id;
 	}

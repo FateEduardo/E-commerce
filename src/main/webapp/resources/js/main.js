@@ -11,7 +11,6 @@ MyApp.controller('loginController',function($scope,loginService,$cookieStore){
 				function(d) {
 					
 					$scope.user = angular.copy(d);
-					console.log($scope.user);
 				},
 				function(errResponse){
 					console.error('Error while fetching Users');
@@ -30,7 +29,7 @@ MyApp.factory('loginService',function($http,$q){
 	
 	var URL='http://localhost:8080/academy'
 		function login(){
-		console.log("login")
+	
 		var deferred = $q.defer();
 		$http.get(URL+'/userName')
 		.then(

@@ -3,21 +3,58 @@ package com.softtek.academy.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.SqlResultSetMapping;
+import javax.persistence.SqlResultSetMappings;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="category")
+@NamedNativeQueries({
+	@NamedNativeQuery(
+			name="findCategoryByItemId",
+			query="SELECT c.category_id as id "
+					+" FROM category as c "
+			+ "   JOIN category_item as  ct   ON c.category_id = ct.category_id "
+			+ "JOIN item as i   ON ct.item_id = i.item_id "
+			+ "WHERE i.item_id = :id",
+			resultSetMapping = "categoryMapping")
+	
+	
+})
+@SqlResultSetMappings({
+	@SqlResultSetMapping(name="categoryMapping",
+			classes= {
+					@ConstructorResult(
+							targetClass = Category.class,
+							columns = {
+								@ColumnResult(name = "id", type = Long.class),
+
+							})
+			})
+})
 public class Category implements Serializable{
 
 	/**
 	 * 
 	 */
+	
+	
 	private static final long serialVersionUID = 1L;
-
+	public Category() {
+		
+	}
+	public Category(Long id) {
+		this.id = id;
+	}
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="category_id")

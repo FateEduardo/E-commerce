@@ -70,6 +70,12 @@ public class ItemServiceImpl implements ItemService{
 		}
 		return true;
 	}
+	@Override
+	public List<Item> findItemByCategory(String description) {
+		// TODO Auto-generated method stub
+		return itemRepository.findItemByCategory(description);
+		
+	}
 
 
 }

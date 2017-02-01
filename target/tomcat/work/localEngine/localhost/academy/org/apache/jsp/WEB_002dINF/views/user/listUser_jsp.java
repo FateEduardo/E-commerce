@@ -83,7 +83,7 @@ public final class listUser_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t</thead>\r\n");
       out.write("\t\t\t\t<tr data-ng-repeat=\"user in userList\">\r\n");
-      out.write("\t\t\t\t\t<td ><a data-ng-bind=\"user.username\" data-ng-click=\"save(user.username)\" data-ng-href=\"");
+      out.write("\t\t\t\t\t<td ><a data-ng-bind=\"user.username\" data-ng-click=\"saveUser(user.username)\" data-ng-href=\"");
       if (_jspx_meth_c_005furl_005f1(_jspx_page_context))
         return;
       out.write("\"></a></td>\r\n");
@@ -140,7 +140,7 @@ public final class listUser_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f1 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f1.setParent(null);
-    // /WEB-INF/views/user/listUser.jsp(27,92) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/user/listUser.jsp(27,96) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005furl_005f1.setValue("/admin/editUserView");
     int _jspx_eval_c_005furl_005f1 = _jspx_th_c_005furl_005f1.doStartTag();
     if (_jspx_th_c_005furl_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

@@ -24,7 +24,7 @@
 					</tr>
 				</thead>
 				<tr data-ng-repeat="user in userList">
-					<td ><a data-ng-bind="user.username" data-ng-click="save(user.username)" data-ng-href="<c:url value="/admin/editUserView"/>"></a></td>
+					<td ><a data-ng-bind="user.username" data-ng-click="saveUser(user.username)" data-ng-href="<c:url value="/admin/editUserView"/>"></a></td>
 					<td data-ng-bind="user.name"></td>
 					<td data-ng-bind="user.role.description"></td>
 					<td data-ng-show="user.status">Active</td>

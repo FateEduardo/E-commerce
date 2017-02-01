@@ -10,5 +10,6 @@ public interface ItemService {
 	boolean save(Item item);
 	boolean isValid(Item item);
 	boolean delete(Item item);
+	List<Item>findItemByCategory(String description);
 
 }

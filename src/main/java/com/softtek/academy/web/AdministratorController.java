@@ -14,9 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.softtek.academy.domain.Category;
+import com.softtek.academy.domain.CategoryItem;
+import com.softtek.academy.domain.CategoryKey;
 import com.softtek.academy.domain.Item;
 import com.softtek.academy.domain.User;
 import com.softtek.academy.domain.UserRole;
+import com.softtek.academy.services.CategoryItemService;
+import com.softtek.academy.services.CategoryService;
 import com.softtek.academy.services.ItemService;
 import com.softtek.academy.services.UserRoleService;
 import com.softtek.academy.services.UserService;
@@ -34,6 +39,12 @@ public class AdministratorController {
 	
 	@Autowired
 	UserRoleService userRoleService;
+	
+	@Autowired 
+	CategoryService categoryService;
+	
+	@Autowired
+	CategoryItemService categoryItemService;
 	
 	@RequestMapping(value="/listItemView", method = RequestMethod.GET)
 	public String itemListView(){
@@ -62,27 +73,44 @@ public class AdministratorController {
 	}
 	@RequestMapping(value="/listItem", method = RequestMethod.GET)
 	public ResponseEntity<?>  listItem( ) {
-		logger.info("llego");
 		List<Item> items = itemService.findAll();
-		if(items.isEmpty()){
-			return new ResponseEntity<List<Item>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+		List<Category>category=categoryService.findAll();
+		Map<String,Object>map=new HashMap<String, Object>();
+		map.put("items", items);
+		map.put("categories", category);
+		if(items==null){
+			return new ResponseEntity<Map<String,Object>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
 		}
-		return new ResponseEntity<List<Item>>(items, HttpStatus.OK);
+		return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
+	}
+	@RequestMapping(value="/category", method = RequestMethod.POST)
+	public ResponseEntity<?>  filterCategory(@RequestBody String description  ) {
+		List<Item> items = itemService.findItemByCategory(description);
+		List<Category>category=categoryService.findAll();
+		Map<String,Object>map=new HashMap<String, Object>();
+		map.put("items", items);
+		map.put("categories", category);
+		if(items==null){
+			return new ResponseEntity<Map<String,Object>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+		}
+		return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/editItem", method = RequestMethod.POST)
-	public ResponseEntity<?>  editItem(@RequestBody Long id ) {
-		logger.info("llego");
+	public ResponseEntity<?>  editItem(@RequestBody Long id ) {;
 		Item item = itemService.findOne(id);
+		List<Category>category=categoryService.findAll();
+		Map<String,Object>map=new HashMap<String, Object>();
+		map.put("item", item);
+		map.put("categories", category);
 		if(item==null){
-			return new ResponseEntity<Item>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+			return new ResponseEntity<Map<String,Object>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
 		}
-		return new ResponseEntity<Item>(item, HttpStatus.OK);
+		return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/editUser", method = RequestMethod.POST)
 	public ResponseEntity<?>  editUser(@RequestBody String username ) {
-		
 		User user = userService.findOne(username);
 		List<UserRole> userRoleList = userRoleService.findAll();
 		List<String> listStatus = userService.listStatus();
@@ -115,8 +143,9 @@ public class AdministratorController {
 	 }
 	@RequestMapping(value="/deleteItem", method = RequestMethod.POST)
 	public String deleteItem(@RequestBody Long id ) {
-		logger.info("llego");
 		Item item=itemService.findOne(id);
+		categoryItemService.deleteCategoryItem(id);
+		
 		if(itemService.delete(item)){
 			return "redirect:/admin/listItemView";
 		}

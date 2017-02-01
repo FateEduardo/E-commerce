@@ -29,11 +29,10 @@
 						<br/> <br />
 						<div class="form-group">
 							<div class="col-sm-6">
-								<input type="text" class="form-control input-group-lg"
-									data-ng-value="item.description"
-									data-ng-model="item.description" name="description"
-									placeholder="Description*" data-ng-required="true">
-							</div>
+									<select name="category" data-ng-model="categoryItem" data-ng-options="category as category.description for category in categories "  class="form-control" required="required">
+								
+									</select>
+								</div>
 						</div>
 
 						<br /> <br />
@@ -41,7 +40,7 @@
 						<div class="col-sm-3">
 								<input type="text" class="form-control input-group-lg"
 									data-ng-value="item.price | currency"
-									data-ng-model="item.price | currency" name="description"
+									data-ng-model="item.price " name="price"
 									placeholder="Price*" data-ng-required="true">
 							</div>
 							<div class="col-sm-3">
@@ -59,7 +58,22 @@
 									data-ng-value="item.active"
 									data-ng-model="item.active" name="active"
 									placeholder="Stock*" data-ng-required="true" readonly="readonly">
-							</div>					
+							</div>	
+										<div class="col-sm-3">
+								<input type="text" class="form-control input-group-lg"
+									data-ng-value="item.description"
+									data-ng-model="item.description" name="description"
+									placeholder="Description*" data-ng-required="true">
+							</div>	
+							
+										<br /> 
+						<br />	
+						<div class="form-group">
+							<div class="col-sm-6 container-button">
+							 <button type="submit" class="btn btn-info" data-ng-click="submitted= true;" data-ng-disabled="myForm.$invalid" >Submit</button>
+								
+							</div>
+						</div>			
 							</div>
 						<br /> 
 						<br />	

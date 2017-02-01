@@ -3,8 +3,12 @@ MyApp.controller('adminController',function($scope,itemServie,userService,$cooki
 
 	$scope.itemList={};
 	$scope.userList={};
+	$scope.categories={};
+	$scope.userRole={};
+	$scope.listStatus={};
 	$scope.item={};
 	$scope.user={};
+	$scope.categoryItem;
 
 	$scope.lisItem=function(){
 		
@@ -12,25 +16,28 @@ MyApp.controller('adminController',function($scope,itemServie,userService,$cooki
 		.then(
 				function(d) {
 					
-					$scope.itemList = angular.copy(d);
+					$scope.itemList = angular.copy(d.items);
+					$scope.categories = angular.copy(d.categories);
+					
 				},
 				function(errResponse){
 					console.error('Error while fetching Users');
 				}
 		);
 	};
-	$scope.save=function(id){
+	$scope.saveItem=function(id){
 		  $cookieStore.put('id',id );
 	}
 	
 	$scope.findItem=function(){
-
 		itemServie.findItem( $cookieStore.get('id'))
 		.then(
 				function(d) {
 
-					$scope.item = angular.copy(d);
-					console.log($scope.item);
+					$scope.item = angular.copy(d.item);
+					$scope.categories=angular.copy(d.categories);
+					
+					
 				},
 				function(errResponse){
 					console.error('Error while fetching Users');
@@ -39,7 +46,27 @@ MyApp.controller('adminController',function($scope,itemServie,userService,$cooki
 	};
 
 	
+	$scope.filterCategory=function(category){
+		itemServie.filterCategory(category)
+		.then(
+				function(d) {
+					
+					$scope.itemList = angular.copy(d.items);
+					$scope.categories = angular.copy(d.categories);
+					
+				},
+				function(errResponse){
+					console.error('Error while fetching Users');
+				}
+		);
+	}
 	
+	$scope.editItem=function(){
+	
+	}
+	$scope.deleteItem=function(id){
+		itemServie.deleteItem(id);
+	}
 	////////////////////////////
 	$scope.userList=function(){
 		
@@ -68,7 +95,7 @@ MyApp.controller('adminController',function($scope,itemServie,userService,$cooki
 					}
 					$scope.userRole = angular.copy(d.userRole);
 					$scope.listStatus = angular.copy(d.listStatus);
-					console.log($scope.listStatus);
+				
 
 				},
 				function(errResponse){
@@ -78,7 +105,7 @@ MyApp.controller('adminController',function($scope,itemServie,userService,$cooki
 
 	}
 
-	$scope.save=function(userName){
+	$scope.saveUser=function(userName){
 		$cookieStore.put('userName',userName );
 
 	}
@@ -94,10 +121,12 @@ MyApp.controller('adminController',function($scope,itemServie,userService,$cooki
 
 });
 
-MyApp.factory('itemServie',function($http,$q){
+MyApp.factory('itemServie',function($http,$q,$window){
 	var service={
 			lisItem:lisItem,
-			findItem:findItem
+			findItem:findItem,
+			filterCategory:filterCategory,
+			deleteItem:deleteItem
 	};
 	
 	var URL='http://localhost:8080/academy/admin'
@@ -118,8 +147,42 @@ MyApp.factory('itemServie',function($http,$q){
 		);
 		return deferred.promise;
 	}
+	function deleteItem(id){
+		var deferred = $q.defer();
+		$http.post(URL+'/deleteItem',id)
+		.then(
+				function (response) {
+					$window.location.href = URL+'/listItemView';
 
+				},
+				function(errResponse){
+					console.error('Error while fetching Users');
+					deferred.reject(errResponse);
+					console.log(errResponse)
+				}
+		);
+		return deferred.promise;
+	}
+
+	function filterCategory(category) {
+		console.log(category)
+		var deferred = $q.defer();
+		$http.post(URL+'/category',category)
+		.then(
+				function (response) {
+					deferred.resolve(response.data);
+
+				},
+				function(errResponse){
+					console.error('Error while fetching Users');
+					deferred.reject(errResponse);
+					console.log(errResponse)
+				}
+		);
+		return deferred.promise;
+	}
 	function findItem(id){
+		
 		var deferred = $q.defer();
 		$http.post(URL+'/editItem',id)
 		.then(

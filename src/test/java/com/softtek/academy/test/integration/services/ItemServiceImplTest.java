@@ -69,7 +69,14 @@ public class ItemServiceImplTest {
 	public void testItemDelete(){
 		Item item=itemService.findOne(1L);
 		itemService.delete(item);
-
+		System.out.println(itemService.findAll());
 	}
+//	@Test
+//	@DatabaseSetup(value="/dataset/scenario3Item.xml", type=DatabaseOperation.INSERT)
+//	@DatabaseSetup(value="/dataset/scenario3Item.xml", type=DatabaseOperation.DELETE)
+//	public void testItemFindItemByCategory(){
+//		List<Item>items=itemService.findItemByCategory(1l);
+//		Assert.assertNotNull(items);
+//	}
 
 }

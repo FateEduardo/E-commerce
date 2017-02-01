@@ -62,6 +62,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("<div data-ng-controller=\"adminController\" data-ng-init=\"lisItem()\">\r\n");
       out.write("\t<div class=\"panel panel-default\">\r\n");
+      out.write("\t\r\n");
       out.write("\t\t<div class=\"panel-heading\">\r\n");
       out.write("\t\t\t<ol class=\"breadcrumb\">\r\n");
       out.write("\t\t\t\t<li><a href=\"");
@@ -70,7 +71,30 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\">Home</a></li>\r\n");
       out.write("\t\t\t\t<li class=\"active\">Item List</li>\r\n");
       out.write("\t\t\t</ol>\r\n");
+      out.write("\t\t\t<div class=\"form-group\">\r\n");
+      out.write("\t\t\t\t<div class=\"col-sm-3\">\r\n");
+      out.write("\t\t\t\t\t<select name=\"category\" data-ng-model=\"categoryItem\"\r\n");
+      out.write("\t\t\t\t\t\tdata-ng-options=\"category as category.description for category in categories \"\r\n");
+      out.write("\t\t\t\t\t\tclass=\"form-control\" required=\"required\">\r\n");
+      out.write("\r\n");
+      out.write("\t\t\t\t\t</select>\r\n");
+      out.write("\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t<div class=\"col-sm-6 container-button\">\r\n");
+      out.write("\t\t\t\t\t<button type=\"submit\" class=\"btn btn-info\"\r\n");
+      out.write("\t\t\t\t\t\tdata-ng-click=\"filterCategory(categoryItem.description)\">SEARCH</button>\r\n");
+      out.write("\r\n");
+      out.write("\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t<div class=\"col-sm-3\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control input-group-lg reg_name\"\r\n");
+      out.write("\t\t\t\t\t\t\t\t\tdata-ng-model=\"find\"  name=\"id\" >\r\n");
+      out.write("\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t</div>\r\n");
       out.write("\t\t</div>\r\n");
+      out.write("\r\n");
+      out.write("<br/>\r\n");
+      out.write("<br/>\r\n");
+      out.write("<br/>\r\n");
+      out.write("<br/>\r\n");
       out.write("\t\t<div class=\"panel-body\">\r\n");
       out.write("\t\t\t<table class=\"table\">\r\n");
       out.write("\t\t\t\t<thead>\r\n");
@@ -84,18 +108,18 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t<th>Delete</th>\r\n");
       out.write("\t\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t</thead>\r\n");
-      out.write("\t\t\t\t<tr data-ng-repeat=\"item in itemList\">\r\n");
-      out.write("\t\t\t\t\t<td ><a data-ng-bind=\"item.id\" data-ng-click=\"save(item.id)\" data-ng-href=\"");
+      out.write("\t\t\t\t<tr data-ng-repeat=\"item in itemList | filter:test\">\r\n");
+      out.write("\t\t\t\t\t<td ><a data-ng-bind=\"item.id\" data-ng-click=\"saveItem(item.id)\" data-ng-href=\"");
       if (_jspx_meth_c_005furl_005f1(_jspx_page_context))
         return;
       out.write("\"></a></td>\r\n");
       out.write("\t\t\t\t\t<td data-ng-bind=\"item.features\"></td>\r\n");
       out.write("\t\t\t\t\t<td data-ng-bind=\"item.description\"></td>\r\n");
-      out.write("\t\t\t\t\t<td data-ng-bind=\"item.price | number:2\"></td>\r\n");
+      out.write("\t\t\t\t\t<td data-ng-bind=\"item.price | currency\"></td>\r\n");
       out.write("\t\t\t\t\t<td data-ng-bind=\"item.stock\"></td>\r\n");
       out.write("\t\t\t\t\t<td data-ng-show=\"item.actice\">Active</td>\r\n");
       out.write("\t\t\t\t\t<td data-ng-show=\"!item.actice\">Disable</td>\r\n");
-      out.write("\t\t\t\t\t<td ><button  class=\"btn btn-info\" data-ng-click=\"deleteItem(item.id)\" data-ng-disabled=\"myForm.$invalid\">Delete</button></td>\r\n");
+      out.write("\t\t\t\t\t<td ><button  class=\"btn btn-info\" data-ng-click=\"deleteItem(item.id)\" >Delete</button></td>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t<tbody>\r\n");
       out.write("\t\t\t\t</tbody>\r\n");
@@ -124,7 +148,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f0.setParent(null);
-    // /WEB-INF/views/item/itemList.jsp(11,17) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/item/itemList.jsp(12,17) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005furl_005f0.setValue("/admin/home");
     int _jspx_eval_c_005furl_005f0 = _jspx_th_c_005furl_005f0.doStartTag();
     if (_jspx_th_c_005furl_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -143,7 +167,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f1 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f1.setParent(null);
-    // /WEB-INF/views/item/itemList.jsp(29,80) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/item/itemList.jsp(53,84) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005furl_005f1.setValue("/admin/editItemView");
     int _jspx_eval_c_005furl_005f1 = _jspx_th_c_005furl_005f1.doStartTag();
     if (_jspx_th_c_005furl_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

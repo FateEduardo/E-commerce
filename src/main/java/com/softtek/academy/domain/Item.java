@@ -3,16 +3,53 @@ package com.softtek.academy.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.SqlResultSetMapping;
+import javax.persistence.SqlResultSetMappings;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
 @Entity
 @Table(name="item")
+@NamedNativeQueries({
+	@NamedNativeQuery(
+			name="findItemByCategory",
+			query="SELECT i.item_id as id, "
+					+ "i.features as features,"
+					+ "i.description as description, "
+					+ "i.unit_price as price, "
+					+ "i.stock as stock "
+					+" FROM item as i "
+			+ "   JOIN category_item as  ct   ON i.item_id = ct.item_id "
+			+ "JOIN category as c   ON ct.category_id = c.category_id "
+			+ "WHERE c.description = :description",
+			resultSetMapping = "itemMapping")
+	
+	
+})
+@SqlResultSetMappings({
+	@SqlResultSetMapping(name="itemMapping",
+			classes= {
+					@ConstructorResult(
+							targetClass = Item.class,
+							columns = {
+								@ColumnResult(name = "id", type = Long.class),
+								@ColumnResult(name = "features", type = String.class),
+								@ColumnResult(name = "description", type = String.class),
+								@ColumnResult(name = "price", type = Double.class),
+								@ColumnResult(name = "stock", type = Integer.class),
+
+							})
+			})
+})
 public class Item implements Serializable{
 	
 	/**
@@ -44,7 +81,23 @@ public class Item implements Serializable{
 	@Convert(converter=StausToBoolean.class)
 	private Boolean active;
 	
+	public Item(Long id, String features, String description, Double price, Integer stock) {
+		this.id = id;
+		this.features = features;
+		this.description = description;
+		this.price = price;
+		this.stock = stock;
+	}
 	
+	
+	
+	public Item() {
+	}
+
+
+
+
+
 	public Long getId() {
 		return id;
 	}

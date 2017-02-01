@@ -8,5 +8,7 @@ import com.softtek.academy.domain.CategoryKey;
 public interface CategoryItemService {
 	List<CategoryItem> findCategoryItemByItem(Long id);
 	boolean deleteCategoryItem(Long id);
+	boolean delete(CategoryKey key);
+	List<CategoryItem>findAll();
 	
 }

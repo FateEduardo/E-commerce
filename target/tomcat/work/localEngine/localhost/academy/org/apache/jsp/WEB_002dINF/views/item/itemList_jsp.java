@@ -108,7 +108,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t<th>Delete</th>\r\n");
       out.write("\t\t\t\t\t</tr>\r\n");
       out.write("\t\t\t\t</thead>\r\n");
-      out.write("\t\t\t\t<tr data-ng-repeat=\"item in itemList | filter:test\">\r\n");
+      out.write("\t\t\t\t<tr data-ng-repeat=\"item in itemList | filter:find\">\r\n");
       out.write("\t\t\t\t\t<td ><a data-ng-bind=\"item.id\" data-ng-click=\"saveItem(item.id)\" data-ng-href=\"");
       if (_jspx_meth_c_005furl_005f1(_jspx_page_context))
         return;

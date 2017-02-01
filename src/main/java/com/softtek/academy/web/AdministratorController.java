@@ -151,9 +151,13 @@ public class AdministratorController {
 	 }
 	@RequestMapping(value="/deleteItem", method = RequestMethod.POST)
 	public String deleteItem(@RequestBody Long id ) {
-		Item item=itemService.findOne(id);
-		categoryItemService.deleteCategoryItem(id);
 		
+		Item item=itemService.findOne(id);
+		List<Category> categories=categoryService.findCategoryByItemId(id);
+		System.err.println(categories);
+		for (Category category : categories) {
+			categoryItemService.delete(new CategoryKey(id, category.getId()));
+		}
 		if(itemService.delete(item)){
 			return "redirect:/admin/listItemView";
 		}

@@ -31,6 +31,21 @@ public class CategoryItemServiceImpl implements CategoryItemService{
 	}
 
 
+	@Override
+	public boolean delete(CategoryKey key) {
+		// TODO Auto-generated method stub
+		categoryItemRepository.delete(key);
+		return true;
+	}
+
+
+	@Override
+	public List<CategoryItem> findAll() {
+		// TODO Auto-generated method stub
+		return categoryItemRepository.findAll();
+	}
+
+
 
 
 }

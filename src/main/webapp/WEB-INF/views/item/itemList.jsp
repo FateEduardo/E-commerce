@@ -49,7 +49,7 @@
 						<th>Delete</th>
 					</tr>
 				</thead>
-				<tr data-ng-repeat="item in itemList | filter:test">
+				<tr data-ng-repeat="item in itemList | filter:find">
 					<td ><a data-ng-bind="item.id" data-ng-click="saveItem(item.id)" data-ng-href="<c:url value="/admin/editItemView"/>"></a></td>
 					<td data-ng-bind="item.features"></td>
 					<td data-ng-bind="item.description"></td>

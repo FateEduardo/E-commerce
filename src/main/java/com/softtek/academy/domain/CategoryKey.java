@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Embeddable
 public class CategoryKey implements Serializable{
@@ -22,10 +25,12 @@ public class CategoryKey implements Serializable{
 	}
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="category_id")
+	@ManyToOne
+	@JoinColumn(name="category_id")
 	private Category id;
 	
-	@Column(name="item_id")
+	@ManyToOne
+	@JoinColumn(name="item_id")
 	private Item item;
 	
 

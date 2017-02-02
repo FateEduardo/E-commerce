@@ -49,8 +49,20 @@
 			<add-attribute value="/resources/js/adminController.js" />
 		</put-list-attribute>
 	</definition>
-		<definition name="listItemUser" extends="DefaultTemplate">
+	<definition name="listItemUser" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/item/itemList.jsp" />
+		<put-list-attribute name="javascript" inherit="true">
+			<add-attribute value="/resources/js/userController.js" />
+		</put-list-attribute>
+	</definition>
+		<definition name="shoesView" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/item/itemListShoes.jsp" />
+		<put-list-attribute name="javascript" inherit="true">
+			<add-attribute value="/resources/js/userController.js" />
+		</put-list-attribute>
+	</definition>
+	<definition name="sweaterView" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/item/itemSweaterShoes.jsp" />
 		<put-list-attribute name="javascript" inherit="true">
 			<add-attribute value="/resources/js/userController.js" />
 		</put-list-attribute>

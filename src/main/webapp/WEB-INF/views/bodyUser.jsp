@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<a href="<c:url value="/admin/newUserView"/>">
+				<a href="<c:url value="/user/sweaterView"/>">
 					
 						<div class="col-md-6 col-sm-6 col-xs-12">
 							<div class="do-box text-center">
@@ -21,7 +21,7 @@
 				
 				</a>
 				<div class="col-md-6 col-sm-6 col-xs-12">
-					<a href="<c:url value="/admin/newItemView"/>">
+					<a href="<c:url value="/user/shoesView"/>">
 						<div class="do-box text-center">
 							<i class="lnr lnr-leaf"> <img class="img-i"
 								src="<c:url value="/resources/images/shoes.png"/>" alt="User">

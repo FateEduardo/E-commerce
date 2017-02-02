@@ -61,7 +61,7 @@
 								
 							</div>
 						</div>
-{{user|json}}
+
 					</div>
 				</form>
 			</div>

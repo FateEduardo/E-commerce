@@ -46,6 +46,37 @@ public class CategoryItemServiceImpl implements CategoryItemService{
 	}
 
 
+	@Override
+	public boolean save(CategoryItem categoryItem) {
+		// TODO Auto-generated method stub
+		if(isValid(categoryItem)){
+			categoryItemRepository.save(categoryItem);
+			return true;
+		}
+		return false;
+	}
+
+
+	@Override
+	public boolean isValid(CategoryItem categoryItem) {
+		// TODO Auto-generated method stub
+		if(categoryItem.getId()==null){
+			return false;
+		}
+		if(categoryItem.getId().getId()==null){
+			if(categoryItem.getId().getId().getId()==null){
+				return false;
+			}
+		}
+		if(categoryItem.getId().getItem()==null){
+			if(categoryItem.getId().getItem().getId()==null){
+				return false;
+			}
+		}
+		return true;
+	}
+
+
 
 
 }

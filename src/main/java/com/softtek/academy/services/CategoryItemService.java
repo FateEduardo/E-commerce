@@ -10,5 +10,6 @@ public interface CategoryItemService {
 	boolean deleteCategoryItem(Long id);
 	boolean delete(CategoryKey key);
 	List<CategoryItem>findAll();
-	
+	boolean save(CategoryItem categoryItem);
+	boolean isValid(CategoryItem categoryItem);
 }

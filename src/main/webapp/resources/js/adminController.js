@@ -1,5 +1,5 @@
 
-MyApp.controller('adminController',function($scope,itemServie,userService,$cookieStore){
+MyApp.controller('adminController',function($scope,itemService,userService,$cookieStore){
 
 	$scope.itemList={};
 	$scope.userList={};
@@ -12,12 +12,13 @@ MyApp.controller('adminController',function($scope,itemServie,userService,$cooki
 	$scope.role
 	$scope.lisItem=function(){
 		
-		itemServie.lisItem()
+		itemService.lisItem()
 		.then(
 				function(d) {
 					
 					$scope.itemList = angular.copy(d.items);
 					$scope.categories = angular.copy(d.categories);
+					console.log(d.cat);
 					
 				},
 				function(errResponse){
@@ -30,7 +31,7 @@ MyApp.controller('adminController',function($scope,itemServie,userService,$cooki
 	}
 	
 	$scope.findItem=function(){
-		itemServie.findItem( $cookieStore.get('id'))
+		itemService.findItem( $cookieStore.get('id'))
 		.then(
 				function(d) {
 
@@ -47,10 +48,10 @@ MyApp.controller('adminController',function($scope,itemServie,userService,$cooki
 
 	
 	$scope.filterCategory=function(category){
-		itemServie.filterCategory(category)
+		itemService.filterCategory(category)
 		.then(
 				function(d) {
-					
+								
 					$scope.itemList = angular.copy(d.items);
 					$scope.categories = angular.copy(d.categories);
 					
@@ -62,10 +63,28 @@ MyApp.controller('adminController',function($scope,itemServie,userService,$cooki
 	}
 	
 	$scope.editItem=function(){
-	
+
+		itemService.editItem($scope.item)
+		itemService.editCategory($scope.item,$scope.categoryItem);
 	}
 	$scope.deleteItem=function(id){
-		itemServie.deleteItem(id);
+		itemService.deleteItem(id);
+	}
+	$scope.newItem=function(){
+		console.log($scope.item);
+		itemService.newItem($scope.item)
+	}
+	$scope.dataItem=function(){
+		itemService.dataItem( )
+		.then(
+				function(d) {
+					$scope.categories = angular.copy(d);
+					
+				},
+				function(errResponse){
+					console.error('Error while fetching Users');
+				}
+		);
 	}
 	////////////////////////////
 	$scope.userList=function(){
@@ -147,12 +166,16 @@ MyApp.controller('adminController',function($scope,itemServie,userService,$cooki
 
 });
 
-MyApp.factory('itemServie',function($http,$q,$window){
+MyApp.factory('itemService',function($http,$q,$window){
 	var service={
 			lisItem:lisItem,
 			findItem:findItem,
 			filterCategory:filterCategory,
-			deleteItem:deleteItem
+			editItem:editItem,
+			newItem:newItem,
+			deleteItem:deleteItem,
+			editCategory:editCategory,
+			dataItem:dataItem
 	};
 	
 	var URL='http://localhost:8080/academy/admin'
@@ -197,6 +220,7 @@ MyApp.factory('itemServie',function($http,$q,$window){
 		.then(
 				function (response) {
 					deferred.resolve(response.data);
+					console.log(response.data)
 
 				},
 				function(errResponse){
@@ -224,8 +248,70 @@ MyApp.factory('itemServie',function($http,$q,$window){
 		);
 		return deferred.promise;
 	}
-	return service;
+	function newItem(item){
+		var deferred = $q.defer();
+		$http.post(URL+'/newItem',item)
+		.then(
+				function (response) {
+					$window.location.href = URL+'/listItemView';
+				},
+				function(errResponse){
+					console.error('Error while fetching Users');
+					deferred.reject(errResponse);
+				}
+		);
+		return deferred.promise;
+	}
+	
+	function dataItem(){
+		var deferred = $q.defer();
+		$http.get(URL+'/dataItem')
+		.then(
+				function (response) {
+					deferred.resolve(response.data);
 
+				},
+				function(errResponse){
+					console.error('Error while fetching Users');
+					deferred.reject(errResponse);
+				}
+		);
+		return deferred.promise;
+	}
+
+	function editItem(item){
+		var deferred = $q.defer();
+		$http.post(URL+'/updateItemView',item)
+		.then(
+				function (response) {
+					console.log("Sussefull")
+				},
+				function(errResponse){
+					console.error('Error while fetching Users');
+					deferred.reject(errResponse);
+				}
+		);
+		return deferred.promise;
+	}
+	function editCategory(item,categoryItem){
+		
+		var categoryItems={'id':{'item':item,'id':categoryItem}}
+		
+		console.log(categoryItems)
+		var deferred = $q.defer();
+		$http.post(URL+'/updateCategory',categoryItems)
+		.then(
+				function (response) {
+					$window.location.href = URL+'/listItemView';
+				},
+				function(errResponse){
+					console.error('Error while fetching Users');
+					deferred.reject(errResponse);
+				}
+		);
+		return deferred.promise;
+	}
+	return service;
 });
 MyApp.factory('userService',function($http,$q,$window){
 	var service={
@@ -301,7 +387,7 @@ MyApp.factory('userService',function($http,$q,$window){
 	}
 	function dataUser(){
 		var deferred = $q.defer();
-		$http.get(URL+'data')
+		$http.get(URL+'dataUser')
 		.then(
 				function (response) {
 					deferred.resolve(response.data);

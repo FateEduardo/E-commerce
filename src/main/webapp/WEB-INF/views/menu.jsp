@@ -1,6 +1,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+
 <div data-ng-controller="loginController" data-ng-init="login()">
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
@@ -17,8 +18,15 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a
-						data-ng-href="<c:url value="/Cart/home"/>">Home</a></li>
+					<li class="active">
+					<sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
+					
+					<a	data-ng-href="<c:url value="/"/>">Home</a></li>
+						</sec:authorize>
+							<sec:authorize ifAnyGranted="ROLE_ADMIN">
+					
+					<a	data-ng-href="<c:url value="/admin/home"/>">Home</a></li>
+						</sec:authorize>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">List <span class="caret"></span></a>
@@ -27,9 +35,11 @@
 								<li><a data-ng-href="<c:url value="/admin/listItemView"/>">Item</a></li>
 								<li><a data-ng-href="<c:url value="/admin/listUserView"/>">User</a></li>
 							</sec:authorize>
-							<sec:authorize ifAnyGranted="ROLE_USR">
+							<sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
+										<li><a data-ng-href="<c:url value="user/listItemView"/>">All</a></li>
 								<li><a data-ng-href="<c:url value="/admin/listItemView"/>">Shoes</a></li>
 								<li><a data-ng-href="<c:url value="/admin/listUserView"/>">Sweater</a></li>
+							
 							</sec:authorize>
 						</ul></li>
 				</ul>

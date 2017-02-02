@@ -84,6 +84,7 @@ public class AdministratorController {
 		List<Item> items = itemService.findAll();
 		List<Category>category=categoryService.findAll();
 		Map<String,Object>map=new HashMap<String, Object>();
+		
 		map.put("items", items);
 		map.put("categories", category);
 		if(items==null){
@@ -93,9 +94,11 @@ public class AdministratorController {
 	}
 	@RequestMapping(value="/category", method = RequestMethod.POST)
 	public ResponseEntity<?>  filterCategory(@RequestBody String description  ) {
+		
 		List<Item> items = itemService.findItemByCategory(description);
 		List<Category>category=categoryService.findAll();
 		Map<String,Object>map=new HashMap<String, Object>();
+		
 		map.put("items", items);
 		map.put("categories", category);
 		if(items==null){
@@ -141,9 +144,17 @@ public class AdministratorController {
 		 return "redirect:/admin/editUserView";
 
 	 }
-	 @RequestMapping(value="/updateItemrView" ,method=RequestMethod.POST)
+	 @RequestMapping(value="/updateItemView" ,method=RequestMethod.POST)
 	 public String updateItem(@RequestBody Item item) {
 		 if( itemService.save(item)){
+			 return "redirect:/admin/listItemView";
+		 }
+		 return "redirect:/admin/editItemView";
+
+	 }
+	 @RequestMapping(value="/updateCategory" ,method=RequestMethod.POST)
+	 public String updateItem(@RequestBody CategoryItem category) {
+		 if( categoryItemService.save(category)){
 			 return "redirect:/admin/listItemView";
 		 }
 		 return "redirect:/admin/editItemView";
@@ -195,7 +206,7 @@ public class AdministratorController {
 		
 	}
 	 
-	 @RequestMapping(value = "/data", method = RequestMethod.GET)
+	 @RequestMapping(value = "/dataUser", method = RequestMethod.GET)
 		public ResponseEntity<?> dataUser() {
 		 User user=new User();
 		 user.setRole(new UserRole());
@@ -209,6 +220,18 @@ public class AdministratorController {
 			 return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
 		 }
 		 return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
+
+	 }
+	 @RequestMapping(value = "/dataItem", method = RequestMethod.GET)
+		public ResponseEntity<?> dataItem() {
+		
+		 List<Category> category = categoryService.findAll();
+
+
+		 if(category.isEmpty() && category.isEmpty()  ){
+			 return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+		 }
+		 return new ResponseEntity<List<Category>>(category, HttpStatus.OK);
 
 	 }
 }

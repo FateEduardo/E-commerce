@@ -15,7 +15,7 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseOperation;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
-import com.softtek.academy.domain.UserRole;
+import com.softtek.academy.domain.UserRoleEntity;
 import com.softtek.academy.services.UserRoleService;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
@@ -31,7 +31,7 @@ public class UserRoleServiceImplTest extends AbstractTransactionalJUnit4SpringCo
 	@Test
 	@DatabaseSetup(value="/dataset/scenario1User.xml", type=DatabaseOperation.CLEAN_INSERT)
 	public void testRoleListNotNull() {
-		List<UserRole>roles=userRoleService.findAll();
+		List<UserRoleEntity>roles=userRoleService.findAll();
 		Assert.assertNotNull(roles);
 	}
 

@@ -8,7 +8,7 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.softtek.academy.domain.User;
+import com.softtek.academy.domain.UserEntity;
 import com.softtek.academy.repository.UserRepository;
 
 @Service
@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService{
 	private UserRepository userRepository;
 	
 	@Override
-	public List<User> findAll() {
+	public List<UserEntity> findAll() {
 		// TODO Auto-generated method stub
 		return userRepository.findAll();
 	}
@@ -31,9 +31,9 @@ public class UserServiceImpl implements UserService{
 		
 	}
 	@Override
-	public User findOne(String username) {
+	public UserEntity findOne(String username) {
 		// TODO Auto-generated method stub
-		User user;
+		UserEntity user;
 		try{
 			 user=userRepository.findOne(username);
 		}catch(EntityNotFoundException ex){
@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public boolean save(User user) {
+	public boolean save(UserEntity user) {
 		// TODO Auto-generated method stub
 		if(isValid(user)){
 		
@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public boolean isValid(User user) {
+	public boolean isValid(UserEntity user) {
 		// TODO Auto-generated method stub
 		if(user.getUsername()==null || user.getUsername().isEmpty()){
 			
@@ -87,7 +87,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public boolean delete(User user) {
+	public boolean delete(UserEntity user) {
 		// TODO Auto-generated method stub
 		try{
 			userRepository.delete(user);

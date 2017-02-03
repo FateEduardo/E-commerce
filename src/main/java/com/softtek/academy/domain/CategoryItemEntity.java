@@ -35,7 +35,7 @@ import javax.persistence.Table;
 	@SqlResultSetMapping(name="categoryItemMapping",
 			classes= {
 					@ConstructorResult(
-							targetClass = CategoryItem.class,
+							targetClass = CategoryItemEntity.class,
 							columns = {
 								@ColumnResult(name = "id", type = Long.class),
 								@ColumnResult(name = "category", type = Long.class),
@@ -46,7 +46,7 @@ import javax.persistence.Table;
 	@SqlResultSetMapping(name="delete",
 	classes= {
 			@ConstructorResult(
-					targetClass = CategoryItem.class,
+					targetClass = CategoryItemEntity.class,
 					columns = {
 						@ColumnResult(name = "count"),
 						
@@ -55,7 +55,7 @@ import javax.persistence.Table;
 					})
 	})
 })
-public class CategoryItem implements Serializable{
+public class CategoryItemEntity implements Serializable{
 	
 	/**
 	 * 
@@ -64,10 +64,10 @@ public class CategoryItem implements Serializable{
 	@EmbeddedId
 	private CategoryKey id;
 
-	public CategoryItem(){
+	public CategoryItemEntity(){
 		
 	}
-	public CategoryItem(Long id,Long category){
+	public CategoryItemEntity(Long id,Long category){
 		this.id=new CategoryKey(id, category);
 	}
 
@@ -96,7 +96,7 @@ public class CategoryItem implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CategoryItem other = (CategoryItem) obj;
+		CategoryItemEntity other = (CategoryItemEntity) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

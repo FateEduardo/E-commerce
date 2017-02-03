@@ -7,7 +7,7 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.softtek.academy.domain.Item;
+import com.softtek.academy.domain.ItemEntity;
 import com.softtek.academy.repository.ItemRepository;
 
 @Service
@@ -15,14 +15,14 @@ public class ItemServiceImpl implements ItemService{
 	@Autowired
 	ItemRepository itemRepository;
 	@Override
-	public List<Item> findAll() {
+	public List<ItemEntity> findAll() {
 		// TODO Auto-generated method stub
 		return itemRepository.findAll();
 	}
 	@Override
-	public Item findOne(Long id) {
+	public ItemEntity findOne(Long id) {
 		// TODO Auto-generated method stub
-		Item item;
+		ItemEntity item;
 		try{
 			item= itemRepository.findOne(id);
 		}catch (EntityNotFoundException e) {
@@ -32,7 +32,7 @@ public class ItemServiceImpl implements ItemService{
 		return item;
 	}
 	@Override
-	public boolean save(Item item) {
+	public boolean save(ItemEntity item) {
 		// TODO Auto-generated method stub
 		if(isValid(item)){
 			itemRepository.save(item);
@@ -40,7 +40,7 @@ public class ItemServiceImpl implements ItemService{
 		return true;
 	}
 	@Override
-	public boolean isValid(Item item) {
+	public boolean isValid(ItemEntity item) {
 
 		if(item.getDescription()==null || item.getDescription().isEmpty()){
 			return false;
@@ -60,7 +60,7 @@ public class ItemServiceImpl implements ItemService{
 		return true;
 	}
 	@Override
-	public boolean delete(Item item) {
+	public boolean delete(ItemEntity item) {
 		// TODO Auto-generated method stub
 		try{
 			itemRepository.delete(item);
@@ -71,7 +71,7 @@ public class ItemServiceImpl implements ItemService{
 		return true;
 	}
 	@Override
-	public List<Item> findItemByCategory(String description) {
+	public List<ItemEntity> findItemByCategory(String description) {
 		// TODO Auto-generated method stub
 		return itemRepository.findItemByCategory(description);
 		

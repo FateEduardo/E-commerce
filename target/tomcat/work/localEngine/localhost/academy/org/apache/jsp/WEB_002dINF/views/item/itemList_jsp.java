@@ -73,6 +73,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\n");
       out.write("\t\t<div class=\"panel-heading\">\n");
       out.write("\t\t\t<ol class=\"breadcrumb\">\n");
+      out.write("\t\t\t\n");
       out.write("\t\t\t");
       if (_jspx_meth_sec_005fauthorize_005f2(_jspx_page_context))
         return;
@@ -132,8 +133,8 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t<td data-ng-bind=\"item.description\"></td>\n");
       out.write("\t\t\t\t\t<td data-ng-bind=\"item.price | currency\"></td>\n");
       out.write("\t\t\t\t\t<td data-ng-bind=\"item.stock\"></td>\n");
-      out.write("\t\t\t\t\t<td data-ng-show=\"item.actice\">Active</td>\n");
-      out.write("\t\t\t\t\t<td data-ng-show=\"!item.actice\">Disable</td>\n");
+      out.write("\t\t\t\t\t<td data-ng-show=\"item.active\">Active</td>\n");
+      out.write("\t\t\t\t\t<td data-ng-show=\"!item.active\">Disable</td>\n");
       out.write("\t\t\t\t\t");
       if (_jspx_meth_sec_005fauthorize_005f4(_jspx_page_context))
         return;
@@ -198,7 +199,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
     int _jspx_eval_sec_005fauthorize_005f1 = _jspx_th_sec_005fauthorize_005f1.doStartTag();
     if (_jspx_eval_sec_005fauthorize_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       out.write("\n");
-      out.write("<div data-ng-controller=\"userController\" data-ng-init=\"lisItem()\">\n");
+      out.write("<div data-ng-controller=\"userController\" data-ng-init=\"listItem()\">\n");
     }
     if (_jspx_th_sec_005fauthorize_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.reuse(_jspx_th_sec_005fauthorize_005f1);
@@ -216,7 +217,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.security.taglibs.authz.JspAuthorizeTag _jspx_th_sec_005fauthorize_005f2 = (org.springframework.security.taglibs.authz.JspAuthorizeTag) _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.get(org.springframework.security.taglibs.authz.JspAuthorizeTag.class);
     _jspx_th_sec_005fauthorize_005f2.setPageContext(_jspx_page_context);
     _jspx_th_sec_005fauthorize_005f2.setParent(null);
-    // /WEB-INF/views/item/itemList.jsp(17,3) name = ifAnyGranted type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/item/itemList.jsp(18,3) name = ifAnyGranted type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_sec_005fauthorize_005f2.setIfAnyGranted("ROLE_ADMIN");
     int _jspx_eval_sec_005fauthorize_005f2 = _jspx_th_sec_005fauthorize_005f2.doStartTag();
     if (_jspx_eval_sec_005fauthorize_005f2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -225,6 +226,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_c_005furl_005f0(_jspx_th_sec_005fauthorize_005f2, _jspx_page_context))
         return true;
       out.write("\">Home</a></li>\n");
+      out.write("\n");
     }
     if (_jspx_th_sec_005fauthorize_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.reuse(_jspx_th_sec_005fauthorize_005f2);
@@ -242,7 +244,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_sec_005fauthorize_005f2);
-    // /WEB-INF/views/item/itemList.jsp(18,13) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/item/itemList.jsp(19,13) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005furl_005f0.setValue("/admin/home");
     int _jspx_eval_c_005furl_005f0 = _jspx_th_c_005furl_005f0.doStartTag();
     if (_jspx_th_c_005furl_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -261,7 +263,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.security.taglibs.authz.JspAuthorizeTag _jspx_th_sec_005fauthorize_005f3 = (org.springframework.security.taglibs.authz.JspAuthorizeTag) _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.get(org.springframework.security.taglibs.authz.JspAuthorizeTag.class);
     _jspx_th_sec_005fauthorize_005f3.setPageContext(_jspx_page_context);
     _jspx_th_sec_005fauthorize_005f3.setParent(null);
-    // /WEB-INF/views/item/itemList.jsp(20,3) name = ifAnyGranted type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/item/itemList.jsp(22,3) name = ifAnyGranted type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_sec_005fauthorize_005f3.setIfAnyGranted("ROLE_ANONYMOUS");
     int _jspx_eval_sec_005fauthorize_005f3 = _jspx_th_sec_005fauthorize_005f3.doStartTag();
     if (_jspx_eval_sec_005fauthorize_005f3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -287,7 +289,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f1 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_sec_005fauthorize_005f3);
-    // /WEB-INF/views/item/itemList.jsp(21,13) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/item/itemList.jsp(23,13) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005furl_005f1.setValue("/");
     int _jspx_eval_c_005furl_005f1 = _jspx_th_c_005furl_005f1.doStartTag();
     if (_jspx_th_c_005furl_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -306,7 +308,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f2 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f2.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f2.setParent(null);
-    // /WEB-INF/views/item/itemList.jsp(66,84) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/item/itemList.jsp(68,84) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005furl_005f2.setValue("/admin/editItemView");
     int _jspx_eval_c_005furl_005f2 = _jspx_th_c_005furl_005f2.doStartTag();
     if (_jspx_th_c_005furl_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -325,7 +327,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.security.taglibs.authz.JspAuthorizeTag _jspx_th_sec_005fauthorize_005f4 = (org.springframework.security.taglibs.authz.JspAuthorizeTag) _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.get(org.springframework.security.taglibs.authz.JspAuthorizeTag.class);
     _jspx_th_sec_005fauthorize_005f4.setPageContext(_jspx_page_context);
     _jspx_th_sec_005fauthorize_005f4.setParent(null);
-    // /WEB-INF/views/item/itemList.jsp(73,5) name = ifAnyGranted type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/item/itemList.jsp(75,5) name = ifAnyGranted type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_sec_005fauthorize_005f4.setIfAnyGranted("ROLE_ADMIN");
     int _jspx_eval_sec_005fauthorize_005f4 = _jspx_th_sec_005fauthorize_005f4.doStartTag();
     if (_jspx_eval_sec_005fauthorize_005f4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -349,7 +351,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.security.taglibs.authz.JspAuthorizeTag _jspx_th_sec_005fauthorize_005f5 = (org.springframework.security.taglibs.authz.JspAuthorizeTag) _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.get(org.springframework.security.taglibs.authz.JspAuthorizeTag.class);
     _jspx_th_sec_005fauthorize_005f5.setPageContext(_jspx_page_context);
     _jspx_th_sec_005fauthorize_005f5.setParent(null);
-    // /WEB-INF/views/item/itemList.jsp(76,5) name = ifAnyGranted type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/item/itemList.jsp(78,5) name = ifAnyGranted type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_sec_005fauthorize_005f5.setIfAnyGranted("ROLE_ANONYMOUS");
     int _jspx_eval_sec_005fauthorize_005f5 = _jspx_th_sec_005fauthorize_005f5.doStartTag();
     if (_jspx_eval_sec_005fauthorize_005f5 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {

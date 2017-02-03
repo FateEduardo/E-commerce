@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.softtek.academy.domain.User;
+import com.softtek.academy.domain.UserEntity;
 import com.softtek.academy.services.UserService;
 
 
@@ -52,7 +52,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/userName", method = RequestMethod.GET)
 	public ResponseEntity<?>  logName() {
-		final User user;
+		 UserEntity user;
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		logger.info(auth.getName());
 		if(auth!=null){
@@ -60,11 +60,11 @@ public class HomeController {
 			if(user==null ){
 				return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
 			}
-			return new ResponseEntity<User>(user, HttpStatus.OK);
+			return new ResponseEntity<UserEntity>(user, HttpStatus.OK);
 		}
 
 		user=null;
-		return  new ResponseEntity<User>(user, HttpStatus.OK);
+		return  new ResponseEntity<UserEntity>(user, HttpStatus.OK);
 		
 	}
 }

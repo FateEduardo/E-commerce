@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.softtek.academy.domain.CategoryItem;
+import com.softtek.academy.domain.CategoryItemEntity;
 import com.softtek.academy.domain.CategoryKey;
 import com.softtek.academy.repository.CategoryItemRepository;
 
@@ -17,18 +17,12 @@ public class CategoryItemServiceImpl implements CategoryItemService{
 
 	
 	@Override
-	public List<CategoryItem> findCategoryItemByItem(Long id) {
+	public List<CategoryItemEntity> findCategoryItemByItem(Long id) {
 		// TODO Auto-generated method stub
 		return categoryItemRepository.findCategoryItemByItem(id);
 	}
 
 
-	@Override
-	public boolean deleteCategoryItem(Long id) {
-		// TODO Auto-generated method stub
-		categoryItemRepository.deleteCategoryItem(id);
-		return true;
-	}
 
 
 	@Override
@@ -40,14 +34,14 @@ public class CategoryItemServiceImpl implements CategoryItemService{
 
 
 	@Override
-	public List<CategoryItem> findAll() {
+	public List<CategoryItemEntity> findAll() {
 		// TODO Auto-generated method stub
 		return categoryItemRepository.findAll();
 	}
 
 
 	@Override
-	public boolean save(CategoryItem categoryItem) {
+	public boolean save(CategoryItemEntity categoryItem) {
 		// TODO Auto-generated method stub
 		if(isValid(categoryItem)){
 			categoryItemRepository.save(categoryItem);
@@ -58,7 +52,7 @@ public class CategoryItemServiceImpl implements CategoryItemService{
 
 
 	@Override
-	public boolean isValid(CategoryItem categoryItem) {
+	public boolean isValid(CategoryItemEntity categoryItem) {
 		// TODO Auto-generated method stub
 		if(categoryItem.getId()==null){
 			return false;

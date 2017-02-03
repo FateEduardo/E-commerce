@@ -2,14 +2,13 @@ package com.softtek.academy.services;
 
 import java.util.List;
 
-import com.softtek.academy.domain.CategoryItem;
+import com.softtek.academy.domain.CategoryItemEntity;
 import com.softtek.academy.domain.CategoryKey;
 
 public interface CategoryItemService {
-	List<CategoryItem> findCategoryItemByItem(Long id);
-	boolean deleteCategoryItem(Long id);
+	List<CategoryItemEntity> findCategoryItemByItem(Long id);
 	boolean delete(CategoryKey key);
-	List<CategoryItem>findAll();
-	boolean save(CategoryItem categoryItem);
-	boolean isValid(CategoryItem categoryItem);
+	List<CategoryItemEntity>findAll();
+	boolean save(CategoryItemEntity categoryItem);
+	boolean isValid(CategoryItemEntity categoryItem);
 }

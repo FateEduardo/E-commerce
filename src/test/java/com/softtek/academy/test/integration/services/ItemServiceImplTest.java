@@ -17,7 +17,7 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseOperation;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.ExpectedDatabase;
-import com.softtek.academy.domain.Item;
+import com.softtek.academy.domain.ItemEntity;
 import com.softtek.academy.services.ItemService;
 
 import junit.framework.Assert;
@@ -34,14 +34,14 @@ public class ItemServiceImplTest {
 	@Test
 	@DatabaseSetup(value="/dataset/item.xml", type=DatabaseOperation.CLEAN_INSERT)
 	public void testItemListNotNull() {
-		List<Item> items=itemService.findAll();
+		List<ItemEntity> items=itemService.findAll();
 		Assert.assertNotNull(items);
 	}
 	@Ignore
 	@Test
 	@DatabaseSetup(value="/dataset/item.xml", type=DatabaseOperation.CLEAN_INSERT)
 	public void testItemFindOneById() {
-		Item item=itemService.findOne(1L);
+		ItemEntity item=itemService.findOne(1L);
 		Assert.assertTrue(item.getFeatures().equals("white"));
 		
 	}
@@ -49,7 +49,7 @@ public class ItemServiceImplTest {
 	@Test
 	@DatabaseSetup(value="/dataset/item.xml", type=DatabaseOperation.CLEAN_INSERT)
 	public void testItemFindOneByIdNotFound() {
-		Item item=itemService.findOne(5L);
+		ItemEntity item=itemService.findOne(5L);
 		Assert.assertTrue(item==null);
 		
 	}
@@ -57,21 +57,21 @@ public class ItemServiceImplTest {
 	@Test
 	@ExpectedDatabase("/dataset/scenario2Item.xml")
 	public void testItemSave(){
-		Item item=new Item();
+		ItemEntity item=new ItemEntity();
 		item.setDescription("medium");
 		item.setFeatures("blue");
 		item.setActive(true);
 		item.setPrice(1.0);
 		item.setStock(4);
 		itemService.save(item);
-		List<Item>items=itemService.findAll();
+		List<ItemEntity>items=itemService.findAll();
 		System.err.println(items);
 	}
 	@Ignore
 	@Test
 	@ExpectedDatabase("/dataset/scenario2Item.xml")
 	public void testItemDelete(){
-		Item item=itemService.findOne(1L);
+		ItemEntity item=itemService.findOne(1L);
 		itemService.delete(item);
 		System.out.println(itemService.findAll());
 	}

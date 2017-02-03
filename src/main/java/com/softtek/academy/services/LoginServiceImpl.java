@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.softtek.academy.domain.User;
+import com.softtek.academy.domain.UserEntity;
 
 
 public class LoginServiceImpl implements UserDetailsService {
@@ -25,7 +25,7 @@ public class LoginServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String ssoId) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 	//	System.out.println(ssoId);
-		User user =userService.findOne(ssoId);
+		UserEntity user =userService.findOne(ssoId);
 		//System.out.println(user);
 		if(user==null){
 			//System.out.println(username);
@@ -45,7 +45,7 @@ public class LoginServiceImpl implements UserDetailsService {
 		            getGrantedAuthorities(user));
 	}
 	
-	private List<GrantedAuthority> getGrantedAuthorities(User user){
+	private List<GrantedAuthority> getGrantedAuthorities(UserEntity user){
 		final String role=roleValid(user.getRole().getId());
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
             authorities.add(new SimpleGrantedAuthority(role));

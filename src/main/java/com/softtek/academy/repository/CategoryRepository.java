@@ -7,10 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.softtek.academy.domain.Category;
+import com.softtek.academy.domain.CategoryEntity;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, Long>{
+public interface CategoryRepository extends JpaRepository<CategoryEntity, Long>{
 	@Query(name = "findCategoryByItemId", nativeQuery = true)
-	List<Category>findCategoryByItemId(@Param("id")Long id);
+	List<CategoryEntity>findCategoryByItemId(@Param("id")Long id);
 }

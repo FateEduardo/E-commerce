@@ -9,6 +9,7 @@
 	<div class="panel panel-default">
 
 		<div class="panel-heading">
+		<div >{{items}}</div>
 			<ol class="breadcrumb">
 				<li><a href="<c:url value="/"/>">Home</a></li>
 				<li class="active">Item List</li>
@@ -22,14 +23,6 @@
 					<option value="200"> >200</option>
 					</select>
 				</div>
-
-				<div class="col-sm-6 container-button">
-					<button type="submit" class="btn btn-info"
-						data-ng-click="filterCategory(categoryItem.description)">SEARCH</button>
-
-				</div>
-
-
 			</div>
 		</div>
 
@@ -47,7 +40,8 @@
 						<th>Unit price</th>
 						<th>Stock</th>
 						<th>Status</th>
-						<th>Delete</th>
+						<th>Select</th>
+						<th>Add</th>
 					</tr>
 				</thead>
 				<tr data-ng-repeat="item in itemList |price:cost ">
@@ -56,9 +50,15 @@
 					<td data-ng-bind="item.description"></td>
 					<td data-ng-bind="item.price | currency"></td>
 					<td data-ng-bind="item.stock"></td>
-					<td data-ng-show="item.actice">Active</td>
-					<td data-ng-show="!item.actice">Disable</td>
-					<td ><button  class="btn btn-info" data-ng-click="deleteItem(item.id)" >Cart</button></td>
+					<td data-ng-show="item.active">Active</td>
+					<td data-ng-show="!item.active">Disable</td>
+					<td><input type="range" name="range" data-ng-model="quantity" min="1"  max="{{item.stock}}">
+					 <input type="number" data-ng-model="quantity"></td>
+					<td><button class="btn btn-info"
+							data-ng-click="addItemOrder(item,quantity)">Cart</button></td>
+					<td>
+					
+					
 				</tr>
 				<tbody>
 				</tbody>

@@ -18,7 +18,7 @@ MyApp.controller('adminController',function($scope,itemService,userService,$cook
 					
 					$scope.itemList = angular.copy(d.items);
 					$scope.categories = angular.copy(d.categories);
-					console.log(d.cat);
+					
 					
 				},
 				function(errResponse){
@@ -71,7 +71,7 @@ MyApp.controller('adminController',function($scope,itemService,userService,$cook
 		itemService.deleteItem(id);
 	}
 	$scope.newItem=function(){
-		console.log($scope.item);
+		
 		itemService.newItem($scope.item)
 	}
 	$scope.dataItem=function(){
@@ -107,7 +107,7 @@ MyApp.controller('adminController',function($scope,itemService,userService,$cook
 				function(d) {
 					$scope.user = angular.copy(d.users);
 					$scope.user.password='';
-					console.log($scope.user)
+					
 					if($scope.user.status){
 						$scope.user.status="S";
 					}else{
@@ -139,7 +139,6 @@ MyApp.controller('adminController',function($scope,itemService,userService,$cook
 		.then(
 				function(d) {
 					$scope.user=angular.copy(d.user);
-					console.log($scope.user)
 					$scope.userRole = angular.copy(d.userRole);
 					$scope.listStatus = angular.copy(d.listStatus);
 				},
@@ -149,11 +148,6 @@ MyApp.controller('adminController',function($scope,itemService,userService,$cook
 		);
 	}
 	$scope.newUser=function(){
-		if($scope.user.status){
-			$scope.user.status="S";
-		}else{
-			$scope.user.status="N";
-		}
 		userService.newUser($scope.user)
 	}
 
@@ -214,13 +208,13 @@ MyApp.factory('itemService',function($http,$q,$window){
 	}
 
 	function filterCategory(category) {
-		console.log(category)
+
 		var deferred = $q.defer();
 		$http.post(URL+'/category',category)
 		.then(
 				function (response) {
 					deferred.resolve(response.data);
-					console.log(response.data)
+					
 
 				},
 				function(errResponse){
@@ -402,6 +396,7 @@ MyApp.factory('userService',function($http,$q,$window){
 	}
 	function newUser(user){
 		var deferred = $q.defer();
+		console.log(user)
 		$http.post(URL+'newUser',user)
 		.then(
 				function (response) {

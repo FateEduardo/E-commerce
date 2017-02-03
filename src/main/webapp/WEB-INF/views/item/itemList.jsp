@@ -8,14 +8,16 @@
 </sec:authorize>
 
 <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
-<div data-ng-controller="userController" data-ng-init="lisItem()">
+<div data-ng-controller="userController" data-ng-init="listItem()">
 </sec:authorize>
 	<div class="panel panel-default">
 	
 		<div class="panel-heading">
 			<ol class="breadcrumb">
+			
 			<sec:authorize ifAnyGranted="ROLE_ADMIN">
 <li><a href="<c:url value="/admin/home"/>">Home</a></li>
+
 </sec:authorize>
 			<sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
 <li><a href="<c:url value="/"/>">Home</a></li>
@@ -68,8 +70,8 @@
 					<td data-ng-bind="item.description"></td>
 					<td data-ng-bind="item.price | currency"></td>
 					<td data-ng-bind="item.stock"></td>
-					<td data-ng-show="item.actice">Active</td>
-					<td data-ng-show="!item.actice">Disable</td>
+					<td data-ng-show="item.active">Active</td>
+					<td data-ng-show="!item.active">Disable</td>
 					<sec:authorize ifAnyGranted="ROLE_ADMIN">
 					<td ><button  class="btn btn-info" data-ng-click="deleteItem(item.id)" >Delete</button></td>
 					</sec:authorize>

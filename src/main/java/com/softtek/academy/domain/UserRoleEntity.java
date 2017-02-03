@@ -1,18 +1,15 @@
 package com.softtek.academy.domain;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="user_role")
-public class UserRole implements Serializable {
+public class UserRoleEntity implements Serializable {
 	
 	/**
 	 * 
@@ -61,7 +58,7 @@ public class UserRole implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserRole other = (UserRole) obj;
+		UserRoleEntity other = (UserRoleEntity) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;

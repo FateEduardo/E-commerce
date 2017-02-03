@@ -2,10 +2,10 @@ package com.softtek.academy.services;
 
 import java.util.List;
 
-import com.softtek.academy.domain.Category;
+import com.softtek.academy.domain.CategoryEntity;
 
 public interface CategoryService {
-	List<Category> findAll();
-	Category findOne(Long id);
-	List<Category>findCategoryByItemId(Long id);
+	List<CategoryEntity> findAll();
+	CategoryEntity findOne(Long id);
+	List<CategoryEntity>findCategoryByItemId(Long id);
 }

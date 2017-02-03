@@ -2,9 +2,9 @@ package com.softtek.academy.services;
 
 import java.util.List;
 
-import com.softtek.academy.domain.UserRole;
+import com.softtek.academy.domain.UserRoleEntity;
 	
 public interface UserRoleService {
-	List<UserRole> findAll();
-	UserRole findOne(String id);
+	List<UserRoleEntity> findAll();
+	UserRoleEntity findOne(String id);
 }

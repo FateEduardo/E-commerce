@@ -98,8 +98,9 @@ public final class newUser_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t<br/>\n");
       out.write("\t\t\t\t\t\t<div class=\"form-group\">\n");
       out.write("\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n");
-      out.write("\t\t\t\t\t\t\t\t\t<select name=\"status\" data-ng-model=\"user.status\" data-ng-options=\"status as status for status in listStatus \"  class=\"form-control\" required>\n");
-      out.write("\t\t\t\t\t\t\t\t\n");
+      out.write("\t\t\t\t\t\t\t\t\t<select name=\"status\" data-ng-model=\"user.status\"   class=\"form-control\" required>\n");
+      out.write("\t\t\t\t\t\t\t\t\t<option value=\"true\">Active</option>\t\n");
+      out.write("\t\t\t\t\t\t\t\t\t<option value=\"false\">Not Active</option>\n");
       out.write("\t\t\t\t\t\t\t\t\t</select>\n");
       out.write("\t\t\t\t\t\t\t\t</div>\n");
       out.write("\t\t\t\t\t\t\t</div>\n");
@@ -126,6 +127,7 @@ public final class newUser_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t</div>\n");
       out.write("\t\t</div>\n");
       out.write("    </div>\n");
+      out.write("    {{user}}\n");
       out.write("  </div>\n");
       out.write("\t");
     } catch (Throwable t) {
@@ -149,7 +151,7 @@ public final class newUser_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_c_005furl_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f0.setParent(null);
     // /WEB-INF/views/user/newUser.jsp(9,18) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f0.setValue("/User/home");
+    _jspx_th_c_005furl_005f0.setValue("/admin/home");
     int _jspx_eval_c_005furl_005f0 = _jspx_th_c_005furl_005f0.doStartTag();
     if (_jspx_th_c_005furl_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f0);

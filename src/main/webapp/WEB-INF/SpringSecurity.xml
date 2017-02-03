@@ -13,6 +13,7 @@
 		<intercept-url pattern="/resources/**" access="permitAll" />
 <!-- 		<intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USR')" /> -->
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/user/addOrder/**" access="hasRole('ROLE_USR')" />
 		<form-login login-page="/login" default-target-url="/redirect"
 			authentication-failure-url="/login" always-use-default-target="true" />
 		<access-denied-handler error-page="/login" />

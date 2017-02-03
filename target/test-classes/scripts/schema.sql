@@ -23,21 +23,7 @@ CREATE TABLE USER(
     ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE SHIP_TO (
-  ship_to_id INTEGER NOT NULL,
-  user VARCHAR(20) NOT NULL,
-  address VARCHAR(250),
-  zip_code INTEGER,
-  phone VARCHAR(20),
 
-  PRIMARY KEY(ship_to_id),
-  INDEX idx_ship_to_user(user),
-  CONSTRAINT fk_user_ship_to
-    FOREIGN KEY(user)
-    REFERENCES user(username)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE
-) ENGINE=InnoDB;
 
 CREATE TABLE CATEGORY(
 	category_id INTEGER NOT NULL,
@@ -82,16 +68,16 @@ CREATE TABLE CART (
   cart_id INTEGER NOT NULL ,
   shipping_amount DECIMAL(10,2),
   cart_amount DECIMAL(10,2),
-  ship_to_id INTEGER,
+  username VARCHAR(20),
   active VARCHAR(2),
   create_date DATETIME,
   update_date DATETIME,
 
   PRIMARY KEY(cart_id),
-  INDEX idx_cart_ship_to_id(ship_to_id),
-  CONSTRAINT fk_ship_to_cart
-    FOREIGN KEY(ship_to_id)
-    REFERENCES ship_to(ship_to_id)
+  INDEX idx_cart_username(username),
+  CONSTRAINT fk_username_cart
+    FOREIGN KEY(username)
+    REFERENCES user(username)
     ON DELETE RESTRICT
     ON UPDATE CASCADE
 ) ENGINE=InnoDB;

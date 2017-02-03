@@ -15,7 +15,7 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseOperation;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
-import com.softtek.academy.domain.Category;
+import com.softtek.academy.domain.CategoryEntity;
 import com.softtek.academy.services.CategoryService;
 
 import junit.framework.Assert;
@@ -33,14 +33,14 @@ public class CategoryServiceImplTest {
 	@Test
 	@DatabaseSetup(value="/dataset/category.xml", type=DatabaseOperation.CLEAN_INSERT)
 	public void testCategoryList() {
-		List<Category> categories=categoryService.findAll();
+		List<CategoryEntity> categories=categoryService.findAll();
 		Assert.assertNotNull(categories);
 	}
 	
 	@Test
 	@DatabaseSetup(value="/dataset/category.xml", type=DatabaseOperation.CLEAN_INSERT)
 	public void testCategoryFindOneById(){
-		Category category=categoryService.findOne(1l);
+		CategoryEntity category=categoryService.findOne(1l);
 		Assert.assertTrue(category.getDescription().equals("shoes"));
 	}
 

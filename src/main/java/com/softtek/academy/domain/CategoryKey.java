@@ -13,9 +13,9 @@ public class CategoryKey implements Serializable{
 	 * 
 	 */
 	public CategoryKey(Long id,Long category){
-		this.id=new Category();
+		this.id=new CategoryEntity();
 		this.id.setId(category);
-		this.item=new Item();
+		this.item=new ItemEntity();
 		item.setId(id);
 	}
 	public CategoryKey(){
@@ -25,23 +25,23 @@ public class CategoryKey implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name="category_id")
-	private Category id;
+	private CategoryEntity id;
 	
 	@ManyToOne
 	@JoinColumn(name="item_id")
-	private Item item;
+	private ItemEntity item;
 	
 
-	public Category getId() {
+	public CategoryEntity getId() {
 		return id;
 	}
-	public void setId(Category id) {
+	public void setId(CategoryEntity id) {
 		this.id = id;
 	}
-	public Item getItem() {
+	public ItemEntity getItem() {
 		return item;
 	}
-	public void setItem(Item item) {
+	public void setItem(ItemEntity item) {
 		this.item = item;
 	}
 	@Override

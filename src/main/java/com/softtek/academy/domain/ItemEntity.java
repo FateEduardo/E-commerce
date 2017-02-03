@@ -39,7 +39,7 @@ import javax.persistence.TableGenerator;
 	@SqlResultSetMapping(name="itemMapping",
 			classes= {
 					@ConstructorResult(
-							targetClass = Item.class,
+							targetClass = ItemEntity.class,
 							columns = {
 								@ColumnResult(name = "id", type = Long.class),
 								@ColumnResult(name = "features", type = String.class),
@@ -50,7 +50,7 @@ import javax.persistence.TableGenerator;
 							})
 			})
 })
-public class Item implements Serializable{
+public class ItemEntity implements Serializable{
 	
 	/**
 	 * 
@@ -63,7 +63,7 @@ public class Item implements Serializable{
 	pkColumnName="seq_name",valueColumnName="seq_acount",
 	pkColumnValue="ITEM",allocationSize=5)
 	@Column(name="item_id")
-	private Long id;
+	private Long item_id;
 	
 	@Column(name="features")
 	private String features;
@@ -81,8 +81,8 @@ public class Item implements Serializable{
 	@Convert(converter=StausToBoolean.class)
 	private Boolean active;
 	
-	public Item(Long id, String features, String description, Double price, Integer stock) {
-		this.id = id;
+	public ItemEntity(Long id, String features, String description, Double price, Integer stock) {
+		this.item_id = id;
 		this.features = features;
 		this.description = description;
 		this.price = price;
@@ -91,7 +91,7 @@ public class Item implements Serializable{
 	
 	
 	
-	public Item() {
+	public ItemEntity() {
 	}
 
 
@@ -99,12 +99,12 @@ public class Item implements Serializable{
 
 
 	public Long getId() {
-		return id;
+		return item_id;
 	}
 
 
 	public void setId(Long id) {
-		this.id = id;
+		this.item_id = id;
 	}
 
 
@@ -160,7 +160,7 @@ public class Item implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", features=" + features + ", description=" + description + ", price=" + price
+		return "Item [id=" + item_id + ", features=" + features + ", description=" + description + ", price=" + price
 				+ ", stock=" + stock + ", active=" + active + "]";
 	}
 
@@ -172,7 +172,7 @@ public class Item implements Serializable{
 		result = prime * result + ((active == null) ? 0 : active.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((features == null) ? 0 : features.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((item_id == null) ? 0 : item_id.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		result = prime * result + ((stock == null) ? 0 : stock.hashCode());
 		return result;
@@ -187,7 +187,7 @@ public class Item implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Item other = (Item) obj;
+		ItemEntity other = (ItemEntity) obj;
 		if (active == null) {
 			if (other.active != null)
 				return false;
@@ -203,10 +203,10 @@ public class Item implements Serializable{
 				return false;
 		} else if (!features.equals(other.features))
 			return false;
-		if (id == null) {
-			if (other.id != null)
+		if (item_id == null) {
+			if (other.item_id != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!item_id.equals(other.item_id))
 			return false;
 		if (price == null) {
 			if (other.price != null)

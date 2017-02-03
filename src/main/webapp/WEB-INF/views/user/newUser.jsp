@@ -6,7 +6,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
 			<ol class="breadcrumb">
-			  <li><a href="<c:url value="/User/home"/>">Home</a></li>
+			  <li><a href="<c:url value="/admin/home"/>">Home</a></li>
 		
 			  <li class="active"></li>
 			</ol>
@@ -39,8 +39,9 @@
 						<br/>
 						<div class="form-group">
 								<div class="col-sm-6">
-									<select name="status" data-ng-model="user.status" data-ng-options="status as status for status in listStatus "  class="form-control" required>
-								
+									<select name="status" data-ng-model="user.status"   class="form-control" required>
+									<option value="true">Active</option>	
+									<option value="false">Not Active</option>
 									</select>
 								</div>
 							</div>
@@ -67,5 +68,6 @@
 			</div>
 		</div>
     </div>
+    {{user}}
   </div>
 	

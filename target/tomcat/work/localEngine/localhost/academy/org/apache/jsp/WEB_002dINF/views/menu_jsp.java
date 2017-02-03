@@ -106,6 +106,10 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_sec_005fauthorize_005f3(_jspx_page_context))
         return;
       out.write("\n");
+      out.write("\t\t\t\t\t\t\t");
+      if (_jspx_meth_sec_005fauthorize_005f4(_jspx_page_context))
+        return;
+      out.write("\n");
       out.write("\t\t\t\t\t\t</ul></li>\n");
       out.write("\t\t\t\t</ul>\n");
       out.write("\t\t\t\t<ul data-ng-show=\"user!=null\" class=\"nav navbar-nav navbar-right\">\n");
@@ -115,10 +119,10 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\t\t\t\t</ul>\n");
       out.write("\t\t\t ");
-      if (_jspx_meth_sec_005fauthorize_005f4(_jspx_page_context))
+      if (_jspx_meth_sec_005fauthorize_005f5(_jspx_page_context))
         return;
       out.write('\n');
-      if (_jspx_meth_sec_005fauthorize_005f5(_jspx_page_context))
+      if (_jspx_meth_sec_005fauthorize_005f6(_jspx_page_context))
         return;
       out.write("\n");
       out.write("\t\t\t</div>\n");
@@ -368,7 +372,7 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_c_005furl_005f4.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_sec_005fauthorize_005f3);
     // /WEB-INF/views/menu.jsp(39,31) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f4.setValue("user/listItemView");
+    _jspx_th_c_005furl_005f4.setValue("/user/listItemView");
     int _jspx_eval_c_005furl_005f4 = _jspx_th_c_005furl_005f4.doStartTag();
     if (_jspx_th_c_005furl_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f4);
@@ -387,7 +391,7 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_c_005furl_005f5.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_sec_005fauthorize_005f3);
     // /WEB-INF/views/menu.jsp(40,29) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f5.setValue("/admin/listItemView");
+    _jspx_th_c_005furl_005f5.setValue("/user/shoesView");
     int _jspx_eval_c_005furl_005f5 = _jspx_th_c_005furl_005f5.doStartTag();
     if (_jspx_th_c_005furl_005f5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f5);
@@ -406,7 +410,7 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_c_005furl_005f6.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_sec_005fauthorize_005f3);
     // /WEB-INF/views/menu.jsp(41,29) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f6.setValue("/admin/listUserView");
+    _jspx_th_c_005furl_005f6.setValue("/user/sweaterView");
     int _jspx_eval_c_005furl_005f6 = _jspx_th_c_005furl_005f6.doStartTag();
     if (_jspx_th_c_005furl_005f6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f6);
@@ -424,10 +428,103 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.security.taglibs.authz.JspAuthorizeTag _jspx_th_sec_005fauthorize_005f4 = (org.springframework.security.taglibs.authz.JspAuthorizeTag) _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.get(org.springframework.security.taglibs.authz.JspAuthorizeTag.class);
     _jspx_th_sec_005fauthorize_005f4.setPageContext(_jspx_page_context);
     _jspx_th_sec_005fauthorize_005f4.setParent(null);
-    // /WEB-INF/views/menu.jsp(52,4) name = ifAnyGranted type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_sec_005fauthorize_005f4.setIfAnyGranted("ROLE_ANONYMOUS");
+    // /WEB-INF/views/menu.jsp(44,7) name = ifAnyGranted type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_sec_005fauthorize_005f4.setIfAnyGranted("ROLE_USR");
     int _jspx_eval_sec_005fauthorize_005f4 = _jspx_th_sec_005fauthorize_005f4.doStartTag();
     if (_jspx_eval_sec_005fauthorize_005f4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      out.write("\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t<li><a data-ng-href=\"");
+      if (_jspx_meth_c_005furl_005f7(_jspx_th_sec_005fauthorize_005f4, _jspx_page_context))
+        return true;
+      out.write("\">All</a></li>\n");
+      out.write("\t\t\t\t\t\t\t\t<li><a data-ng-href=\"");
+      if (_jspx_meth_c_005furl_005f8(_jspx_th_sec_005fauthorize_005f4, _jspx_page_context))
+        return true;
+      out.write("\">Shoes</a></li>\n");
+      out.write("\t\t\t\t\t\t\t\t<li><a data-ng-href=\"");
+      if (_jspx_meth_c_005furl_005f9(_jspx_th_sec_005fauthorize_005f4, _jspx_page_context))
+        return true;
+      out.write("\">Sweater</a></li>\n");
+      out.write("\t\t\t\t\t\t\t\n");
+      out.write("\t\t\t\t\t\t\t");
+    }
+    if (_jspx_th_sec_005fauthorize_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.reuse(_jspx_th_sec_005fauthorize_005f4);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.reuse(_jspx_th_sec_005fauthorize_005f4);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_005furl_005f7(javax.servlet.jsp.tagext.JspTag _jspx_th_sec_005fauthorize_005f4, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:url
+    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f7 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
+    _jspx_th_c_005furl_005f7.setPageContext(_jspx_page_context);
+    _jspx_th_c_005furl_005f7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_sec_005fauthorize_005f4);
+    // /WEB-INF/views/menu.jsp(45,31) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f7.setValue("/user/listItemView");
+    int _jspx_eval_c_005furl_005f7 = _jspx_th_c_005furl_005f7.doStartTag();
+    if (_jspx_th_c_005furl_005f7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f7);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f7);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_005furl_005f8(javax.servlet.jsp.tagext.JspTag _jspx_th_sec_005fauthorize_005f4, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:url
+    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f8 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
+    _jspx_th_c_005furl_005f8.setPageContext(_jspx_page_context);
+    _jspx_th_c_005furl_005f8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_sec_005fauthorize_005f4);
+    // /WEB-INF/views/menu.jsp(46,29) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f8.setValue("/user/shoesView");
+    int _jspx_eval_c_005furl_005f8 = _jspx_th_c_005furl_005f8.doStartTag();
+    if (_jspx_th_c_005furl_005f8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f8);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f8);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_005furl_005f9(javax.servlet.jsp.tagext.JspTag _jspx_th_sec_005fauthorize_005f4, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:url
+    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f9 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
+    _jspx_th_c_005furl_005f9.setPageContext(_jspx_page_context);
+    _jspx_th_c_005furl_005f9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_sec_005fauthorize_005f4);
+    // /WEB-INF/views/menu.jsp(47,29) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f9.setValue("/user/sweaterView");
+    int _jspx_eval_c_005furl_005f9 = _jspx_th_c_005furl_005f9.doStartTag();
+    if (_jspx_th_c_005furl_005f9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f9);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f9);
+    return false;
+  }
+
+  private boolean _jspx_meth_sec_005fauthorize_005f5(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  sec:authorize
+    org.springframework.security.taglibs.authz.JspAuthorizeTag _jspx_th_sec_005fauthorize_005f5 = (org.springframework.security.taglibs.authz.JspAuthorizeTag) _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.get(org.springframework.security.taglibs.authz.JspAuthorizeTag.class);
+    _jspx_th_sec_005fauthorize_005f5.setPageContext(_jspx_page_context);
+    _jspx_th_sec_005fauthorize_005f5.setParent(null);
+    // /WEB-INF/views/menu.jsp(58,4) name = ifAnyGranted type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_sec_005fauthorize_005f5.setIfAnyGranted("ROLE_ANONYMOUS");
+    int _jspx_eval_sec_005fauthorize_005f5 = _jspx_th_sec_005fauthorize_005f5.doStartTag();
+    if (_jspx_eval_sec_005fauthorize_005f5 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       out.write("\n");
       out.write("\t\t\t\t<ul class=\"nav navbar-nav navbar-right\">\n");
       out.write("\t\t\t\t\t<li class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle\"\n");
@@ -481,56 +578,56 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\t\t\t\t</ul>\n");
     }
-    if (_jspx_th_sec_005fauthorize_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.reuse(_jspx_th_sec_005fauthorize_005f4);
+    if (_jspx_th_sec_005fauthorize_005f5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.reuse(_jspx_th_sec_005fauthorize_005f5);
       return true;
     }
-    _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.reuse(_jspx_th_sec_005fauthorize_005f4);
+    _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifAnyGranted.reuse(_jspx_th_sec_005fauthorize_005f5);
     return false;
   }
 
-  private boolean _jspx_meth_sec_005fauthorize_005f5(PageContext _jspx_page_context)
+  private boolean _jspx_meth_sec_005fauthorize_005f6(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  sec:authorize
-    org.springframework.security.taglibs.authz.JspAuthorizeTag _jspx_th_sec_005fauthorize_005f5 = (org.springframework.security.taglibs.authz.JspAuthorizeTag) _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifNotGranted.get(org.springframework.security.taglibs.authz.JspAuthorizeTag.class);
-    _jspx_th_sec_005fauthorize_005f5.setPageContext(_jspx_page_context);
-    _jspx_th_sec_005fauthorize_005f5.setParent(null);
-    // /WEB-INF/views/menu.jsp(105,0) name = ifNotGranted type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_sec_005fauthorize_005f5.setIfNotGranted("ROLE_ANONYMOUS");
-    int _jspx_eval_sec_005fauthorize_005f5 = _jspx_th_sec_005fauthorize_005f5.doStartTag();
-    if (_jspx_eval_sec_005fauthorize_005f5 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+    org.springframework.security.taglibs.authz.JspAuthorizeTag _jspx_th_sec_005fauthorize_005f6 = (org.springframework.security.taglibs.authz.JspAuthorizeTag) _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifNotGranted.get(org.springframework.security.taglibs.authz.JspAuthorizeTag.class);
+    _jspx_th_sec_005fauthorize_005f6.setPageContext(_jspx_page_context);
+    _jspx_th_sec_005fauthorize_005f6.setParent(null);
+    // /WEB-INF/views/menu.jsp(111,0) name = ifNotGranted type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_sec_005fauthorize_005f6.setIfNotGranted("ROLE_ANONYMOUS");
+    int _jspx_eval_sec_005fauthorize_005f6 = _jspx_th_sec_005fauthorize_005f6.doStartTag();
+    if (_jspx_eval_sec_005fauthorize_005f6 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       out.write("\n");
       out.write(" <a href=\"");
-      if (_jspx_meth_c_005furl_005f7(_jspx_th_sec_005fauthorize_005f5, _jspx_page_context))
+      if (_jspx_meth_c_005furl_005f10(_jspx_th_sec_005fauthorize_005f6, _jspx_page_context))
         return true;
       out.write("\" class=\"navbar-brand navbar-right\">Logout</a>\n");
     }
-    if (_jspx_th_sec_005fauthorize_005f5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifNotGranted.reuse(_jspx_th_sec_005fauthorize_005f5);
+    if (_jspx_th_sec_005fauthorize_005f6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifNotGranted.reuse(_jspx_th_sec_005fauthorize_005f6);
       return true;
     }
-    _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifNotGranted.reuse(_jspx_th_sec_005fauthorize_005f5);
+    _005fjspx_005ftagPool_005fsec_005fauthorize_0026_005fifNotGranted.reuse(_jspx_th_sec_005fauthorize_005f6);
     return false;
   }
 
-  private boolean _jspx_meth_c_005furl_005f7(javax.servlet.jsp.tagext.JspTag _jspx_th_sec_005fauthorize_005f5, PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_005furl_005f10(javax.servlet.jsp.tagext.JspTag _jspx_th_sec_005fauthorize_005f6, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:url
-    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f7 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
-    _jspx_th_c_005furl_005f7.setPageContext(_jspx_page_context);
-    _jspx_th_c_005furl_005f7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_sec_005fauthorize_005f5);
-    // /WEB-INF/views/menu.jsp(106,10) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f7.setValue("/j_spring_security_logout");
-    int _jspx_eval_c_005furl_005f7 = _jspx_th_c_005furl_005f7.doStartTag();
-    if (_jspx_th_c_005furl_005f7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f7);
+    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f10 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
+    _jspx_th_c_005furl_005f10.setPageContext(_jspx_page_context);
+    _jspx_th_c_005furl_005f10.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_sec_005fauthorize_005f6);
+    // /WEB-INF/views/menu.jsp(112,10) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f10.setValue("/j_spring_security_logout");
+    int _jspx_eval_c_005furl_005f10 = _jspx_th_c_005furl_005f10.doStartTag();
+    if (_jspx_th_c_005furl_005f10.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f10);
       return true;
     }
-    _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f7);
+    _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f10);
     return false;
   }
 }

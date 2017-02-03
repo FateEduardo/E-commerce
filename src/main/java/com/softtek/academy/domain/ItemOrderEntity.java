@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="item_order")
-public class ItemOrder implements Serializable {
+public class ItemOrderEntity implements Serializable {
 
 	/**
 	 * 
@@ -27,11 +27,11 @@ public class ItemOrder implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="item_id")
-	private Item item;
+	private ItemEntity item_id;
 	
 	@ManyToOne
 	@JoinColumn(name="cart_id")
-	private Cart cart;
+	private CartEntity cart;
 	
 	@Column(name="quantity")
 	private Long quantity;
@@ -44,16 +44,16 @@ public class ItemOrder implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Item getItem() {
-		return item;
+	public ItemEntity getItem() {
+		return item_id;
 	}
-	public void setItem(Item item) {
-		this.item = item;
+	public void setItem(ItemEntity item) {
+		this.item_id = item;
 	}
-	public Cart getCart() {
+	public CartEntity getCart() {
 		return cart;
 	}
-	public void setCart(Cart cart) {
+	public void setCart(CartEntity cart) {
 		this.cart = cart;
 	}
 	public Long getQuantity() {
@@ -69,7 +69,7 @@ public class ItemOrder implements Serializable {
 		int result = super.hashCode();
 		result = prime * result + ((cart == null) ? 0 : cart.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((item == null) ? 0 : item.hashCode());
+		result = prime * result + ((item_id == null) ? 0 : item_id.hashCode());
 		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
 		return result;
 	}
@@ -82,7 +82,7 @@ public class ItemOrder implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ItemOrder other = (ItemOrder) obj;
+		ItemOrderEntity other = (ItemOrderEntity) obj;
 		if (cart == null) {
 			if (other.cart != null)
 				return false;
@@ -93,10 +93,10 @@ public class ItemOrder implements Serializable {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (item == null) {
-			if (other.item != null)
+		if (item_id == null) {
+			if (other.item_id != null)
 				return false;
-		} else if (!item.equals(other.item))
+		} else if (!item_id.equals(other.item_id))
 			return false;
 		if (quantity == null) {
 			if (other.quantity != null)
@@ -108,7 +108,7 @@ public class ItemOrder implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ItemOrder [id=" + id + ", item=" + item + ", cart=" + cart + ", quantity=" + quantity + "]";
+		return "ItemOrder [id=" + id + ", item=" + item_id + ", cart=" + cart + ", quantity=" + quantity + "]";
 	}
 
 	

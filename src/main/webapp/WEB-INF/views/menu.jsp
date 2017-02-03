@@ -36,9 +36,15 @@
 								<li><a data-ng-href="<c:url value="/admin/listUserView"/>">User</a></li>
 							</sec:authorize>
 							<sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
-										<li><a data-ng-href="<c:url value="user/listItemView"/>">All</a></li>
-								<li><a data-ng-href="<c:url value="/admin/listItemView"/>">Shoes</a></li>
-								<li><a data-ng-href="<c:url value="/admin/listUserView"/>">Sweater</a></li>
+										<li><a data-ng-href="<c:url value="/user/listItemView"/>">All</a></li>
+								<li><a data-ng-href="<c:url value="/user/shoesView"/>">Shoes</a></li>
+								<li><a data-ng-href="<c:url value="/user/sweaterView"/>">Sweater</a></li>
+							
+							</sec:authorize>
+							<sec:authorize ifAnyGranted="ROLE_USR">
+										<li><a data-ng-href="<c:url value="/user/listItemView"/>">All</a></li>
+								<li><a data-ng-href="<c:url value="/user/shoesView"/>">Shoes</a></li>
+								<li><a data-ng-href="<c:url value="/user/sweaterView"/>">Sweater</a></li>
 							
 							</sec:authorize>
 						</ul></li>

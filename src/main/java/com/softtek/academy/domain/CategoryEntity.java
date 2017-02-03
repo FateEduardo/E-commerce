@@ -33,14 +33,14 @@ import javax.persistence.Table;
 	@SqlResultSetMapping(name="categoryMapping",
 			classes= {
 					@ConstructorResult(
-							targetClass = Category.class,
+							targetClass = CategoryEntity.class,
 							columns = {
 								@ColumnResult(name = "id", type = Long.class),
 
 							})
 			})
 })
-public class Category implements Serializable{
+public class CategoryEntity implements Serializable{
 
 	/**
 	 * 
@@ -48,10 +48,10 @@ public class Category implements Serializable{
 	
 	
 	private static final long serialVersionUID = 1L;
-	public Category() {
+	public CategoryEntity() {
 		
 	}
-	public Category(Long id) {
+	public CategoryEntity(Long id) {
 		this.id = id;
 	}
 	
@@ -91,7 +91,7 @@ public class Category implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Category other = (Category) obj;
+		CategoryEntity other = (CategoryEntity) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;

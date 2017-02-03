@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user")
-public class User implements Serializable{
+public class UserEntity implements Serializable{
 	
 
 	/**
@@ -30,7 +30,7 @@ public class User implements Serializable{
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "user_role_id")
-	private  UserRole role;
+	private  UserRoleEntity role;
 	
 	@Column(name = "active")
 	@Convert(converter=StausToBoolean.class)
@@ -55,11 +55,11 @@ public class User implements Serializable{
 		this.name = name;
 	}
 
-	public UserRole getRole() {
+	public UserRoleEntity getRole() {
 		return role;
 	}
 
-	public void setRole(UserRole role) {
+	public void setRole(UserRoleEntity role) {
 		this.role = role;
 	}
 
@@ -99,7 +99,7 @@ public class User implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		UserEntity other = (UserEntity) obj;
 		if (name == null) {
 			if (other.name != null)
 				return false;

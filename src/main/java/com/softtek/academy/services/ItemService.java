@@ -2,14 +2,14 @@ package com.softtek.academy.services;
 
 import java.util.List;
 
-import com.softtek.academy.domain.Item;
+import com.softtek.academy.domain.ItemEntity;
 
 public interface ItemService {
-	List<Item>findAll();
-	Item findOne(Long id);
-	boolean save(Item item);
-	boolean isValid(Item item);
-	boolean delete(Item item);
-	List<Item>findItemByCategory(String description);
+	List<ItemEntity>findAll();
+	ItemEntity findOne(Long id);
+	boolean save(ItemEntity item);
+	boolean isValid(ItemEntity item);
+	boolean delete(ItemEntity item);
+	List<ItemEntity>findItemByCategory(String description);
 
 }

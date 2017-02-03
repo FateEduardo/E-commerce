@@ -5,6 +5,7 @@
 	<div data-ng-controller="adminController" data-ng-init="dataItem()" >
     <div class="panel panel-default">
       <div class="panel-heading">
+			
 			<ol class="breadcrumb">
 			  <li><a href="<c:url value="/admin/home"/>">Home</a></li>
 			  <li><a href="<c:url value="/admin/listItemView"/>">List</a></li>

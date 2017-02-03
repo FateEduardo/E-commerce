@@ -1,7 +1,7 @@
 
 
 CREATE TABLE USER_ROLE (
-  user_role_id VARCHAR(5) NOT NULL,
+  user_role_id VARCHAR(20) NOT NULL,
   description VARCHAR(20),
 
   PRIMARY KEY(user_role_id)
@@ -11,7 +11,7 @@ CREATE TABLE USER(
   username VARCHAR(20) NOT NULL,
   password VARCHAR(20),
   name VARCHAR(100),
-  user_role_id VARCHAR(5) NOT NULL,  
+  user_role_id VARCHAR(20) NOT NULL,  
   active VARCHAR(1),
 
   PRIMARY KEY(username),
@@ -26,7 +26,7 @@ CREATE TABLE USER(
 
 
 CREATE TABLE CATEGORY(
-	category_id INTEGER NOT NULL,
+	category_id INTEGER NOT NULL AUTO_INCREMENT,
 	description VARCHAR(100),
     
 PRIMARY KEY(category_id)
@@ -35,7 +35,7 @@ PRIMARY KEY(category_id)
 )ENGINE=InnoDB;
 
 CREATE TABLE ITEM (
-  item_id INTEGER NOT NULL ,
+  item_id INTEGER NOT NULL AUTO_INCREMENT ,
   description VARCHAR(100),
   features VARCHAR(250),
   unit_price DECIMAL(10,2),
@@ -45,7 +45,7 @@ CREATE TABLE ITEM (
 ) ENGINE=InnoDB;
 
 CREATE TABLE CATEGORY_ITEM(
-	category_id INTEGER NOT NULL,
+	category_id INTEGER NOT NULL AUTO_INCREMENT,
 	item_id INTEGER NOT NULL,
     
 PRIMARY KEY(category_id,item_id),
@@ -65,7 +65,7 @@ INDEX idx_item_category_id(category_id),
 )ENGINE=InnoDB;
 
 CREATE TABLE CART (
-  cart_id INTEGER NOT NULL ,
+  cart_id INTEGER NOT NULL AUTO_INCREMENT,
   shipping_amount DECIMAL(10,2),
   cart_amount DECIMAL(10,2),
   username VARCHAR(20),
@@ -83,7 +83,7 @@ CREATE TABLE CART (
 ) ENGINE=InnoDB;
 
 CREATE TABLE ITEM_ORDER(
-	item_order_id INTEGER NOT NULL,
+	item_order_id INTEGER NOT NULL AUTO_INCREMENT,
 	item_id INTEGER,
 	cart_id INTEGER,
 	quantity INTEGER,
@@ -105,10 +105,6 @@ CREATE TABLE ITEM_ORDER(
 )ENGINE=InnoDB;
 
 
-CREATE TABLE TSEQUENCE(
-	seq_name VARCHAR(10) ,
-	seq_acount INTEGER
-)ENGINE=InnoDB;
 
 
 
